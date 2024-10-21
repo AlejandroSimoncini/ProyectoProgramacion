@@ -1,0 +1,7 @@
+Bases de datos posibles:
+Lista de Arboles AVL
+Razones:
+-La lista seria de ligas ya que son pocas
+-Por nodo de lista habria un arbol separado
+Preguntas para Tosetti:
+

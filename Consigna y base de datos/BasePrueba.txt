@@ -1,0 +1,501 @@
+Jornada,Fecha,Equipo Local,Goles Local,Goles Visitante,Equipo Visitante,Competicion
+Fase de grupos partido 1,18/9/2012,Malaga CF,3,0,Zenit,Champions League
+Fase de grupos partido 1,18/9/2012,Real Madrid,3,2,Manchester City,Champions League
+Fase de grupos partido 1,18/9/2012,Milan,0,0,Anderlecht,Champions League
+Fase de grupos partido 1,18/9/2012,Dinamo Zagreb,0,2,Porto,Champions League
+Fase de grupos partido 1,18/9/2012,Olympiacos,1,2,Schalke 04,Champions League
+Fase de grupos partido 1,18/9/2012,Montpellier,1,2,Arsenal,Champions League
+Fase de grupos partido 1,18/9/2012,PSG,4,1,Dynamo Kyiv,Champions League
+Fase de grupos partido 1,18/9/2012,Borussia Dortmund,1,0,Ajax,Champions League
+Fase de grupos partido 1,19/9/2012,Braga,0,2,Cluj,Champions League
+Fase de grupos partido 1,19/9/2012,Shakhtar Donetsk,2,0,Nordsjælland,Champions League
+Fase de grupos partido 1,19/9/2012,Chelsea,2,2,Juventus,Champions League
+Fase de grupos partido 1,19/9/2012,Manchester United,1,0,Galatasaray,Champions League
+Fase de grupos partido 1,19/9/2012,Lille,1,3,BATE Borisov,Champions League
+Fase de grupos partido 1,19/9/2012,Bayern Munich,2,1,Valencia,Champions League
+Fase de grupos partido 1,19/9/2012,Barcelona,3,2,Spartak Moskva,Champions League
+Fase de grupos partido 1,19/9/2012,Celtic,0,0,Benfica,Champions League
+Fase de grupos partido 2,2/10/2012,Juventus,1,1,Shakhtar Donetsk,Champions League
+Fase de grupos partido 2,2/10/2012,Valencia,2,0,Lille,Champions League
+Fase de grupos partido 2,2/10/2012,BATE Borisov,3,1,Bayern Munich,Champions League
+Fase de grupos partido 2,2/10/2012,Spartak Moskva,3,2,Celtic,Champions League
+Fase de grupos partido 2,2/10/2012,Benfica,0,2,Barcelona,Champions League
+Fase de grupos partido 2,2/10/2012,Cluj,1,2,Manchester United,Champions League
+Fase de grupos partido 2,2/10/2012,Galatasaray,0,2,Braga,Champions League
+Fase de grupos partido 2,2/10/2012,Nordsjælland,0,4,Chelsea,Champions League
+Fase de grupos partido 2,3/10/2012,Ajax,1,4,Real Madrid,Champions League
+Fase de grupos partido 2,3/10/2012,Manchester City,1,1,Borussia Dortmund,Champions League
+Fase de grupos partido 2,3/10/2012,Anderlecht,0,3,Malaga CF,Champions League
+Fase de grupos partido 2,3/10/2012,Zenit,2,3,Milan,Champions League
+Fase de grupos partido 2,3/10/2012,Arsenal,3,1,Olympiacos,Champions League
+Fase de grupos partido 2,3/10/2012,Schalke 04,2,2,Montpellier,Champions League
+Fase de grupos partido 2,3/10/2012,Porto,1,0,PSG,Champions League
+Fase de grupos partido 2,3/10/2012,Dynamo Kyiv,2,0,Dinamo Zagreb,Champions League
+Fase de grupos partido 3,23/10/2012,Nordsjælland,1,1,Juventus,Champions League
+Fase de grupos partido 3,23/10/2012,Shakhtar Donetsk,2,1,Chelsea,Champions League
+Fase de grupos partido 3,23/10/2012,BATE Borisov,0,3,Valencia,Champions League
+Fase de grupos partido 3,23/10/2012,Lille,0,1,Bayern Munich,Champions League
+Fase de grupos partido 3,23/10/2012,Spartak Moskva,2,1,Benfica,Champions League
+Fase de grupos partido 3,23/10/2012,Barcelona,2,1,Celtic,Champions League
+Fase de grupos partido 3,23/10/2012,Galatasaray,1,1,Cluj,Champions League
+Fase de grupos partido 3,23/10/2012,Manchester United,3,2,Braga,Champions League
+Fase de grupos partido 3,24/10/2012,Dinamo Zagreb,0,2,PSG,Champions League
+Fase de grupos partido 3,24/10/2012,Borussia Dortmund,2,1,Real Madrid,Champions League
+Fase de grupos partido 3,24/10/2012,Ajax,3,1,Manchester City,Champions League
+Fase de grupos partido 3,24/10/2012,Malaga CF,1,0,Milan,Champions League
+Fase de grupos partido 3,24/10/2012,Zenit,1,0,Anderlecht,Champions League
+Fase de grupos partido 3,24/10/2012,Montpellier,1,2,Olympiacos,Champions League
+Fase de grupos partido 3,24/10/2012,Porto,3,2,Dynamo Kyiv,Champions League
+Fase de grupos partido 3,24/10/2012,Arsenal,0,2,Schalke 04,Champions League
+Fase de grupos partido 4,6/11/2012,Real Madrid,2,2,Borussia Dortmund,Champions League
+Fase de grupos partido 4,6/11/2012,Schalke 04,2,2,Arsenal,Champions League
+Fase de grupos partido 4,6/11/2012,Manchester City,2,2,Ajax,Champions League
+Fase de grupos partido 4,6/11/2012,Milan,1,1,Malaga CF,Champions League
+Fase de grupos partido 4,6/11/2012,Anderlecht,1,0,Zenit,Champions League
+Fase de grupos partido 4,6/11/2012,Olympiacos,3,1,Montpellier,Champions League
+Fase de grupos partido 4,6/11/2012,PSG,4,0,Dinamo Zagreb,Champions League
+Fase de grupos partido 4,6/11/2012,Dynamo Kyiv,0,0,Porto,Champions League
+Fase de grupos partido 4,7/11/2012,Braga,1,3,Manchester United,Champions League
+Fase de grupos partido 4,7/11/2012,Bayern Munich,6,1,Lille,Champions League
+Fase de grupos partido 4,7/11/2012,Cluj,1,3,Galatasaray,Champions League
+Fase de grupos partido 4,7/11/2012,Valencia,4,2,BATE Borisov,Champions League
+Fase de grupos partido 4,7/11/2012,Juventus,4,0,Nordsjælland,Champions League
+Fase de grupos partido 4,7/11/2012,Celtic,2,1,Barcelona,Champions League
+Fase de grupos partido 4,7/11/2012,Benfica,2,0,Spartak Moskva,Champions League
+Fase de grupos partido 4,7/11/2012,Chelsea,3,2,Shakhtar Donetsk,Champions League
+Fase de grupos partido 5,20/11/2012,Nordsjælland,2,5,Shakhtar Donetsk,Champions League
+Fase de grupos partido 5,20/11/2012,Cluj,3,1,Braga,Champions League
+Fase de grupos partido 5,20/11/2012,Galatasaray,1,0,Manchester United,Champions League
+Fase de grupos partido 5,20/11/2012,Benfica,2,1,Celtic,Champions League
+Fase de grupos partido 5,20/11/2012,Spartak Moskva,0,3,Barcelona,Champions League
+Fase de grupos partido 5,20/11/2012,Valencia,1,1,Bayern Munich,Champions League
+Fase de grupos partido 5,20/11/2012,BATE Borisov,0,2,Lille,Champions League
+Fase de grupos partido 5,20/11/2012,Juventus,3,0,Chelsea,Champions League
+Fase de grupos partido 5,21/11/2012,Anderlecht,1,3,Milan,Champions League
+Fase de grupos partido 5,21/11/2012,Dynamo Kyiv,0,2,PSG,Champions League
+Fase de grupos partido 5,21/11/2012,Manchester City,1,1,Real Madrid,Champions League
+Fase de grupos partido 5,21/11/2012,Ajax,1,4,Borussia Dortmund,Champions League
+Fase de grupos partido 5,21/11/2012,Zenit,2,2,Malaga CF,Champions League
+Fase de grupos partido 5,21/11/2012,Schalke 04,1,0,Olympiacos,Champions League
+Fase de grupos partido 5,21/11/2012,Arsenal,2,0,Montpellier,Champions League
+Fase de grupos partido 5,21/11/2012,Porto,3,0,Dinamo Zagreb,Champions League
+Fase de grupos partido 6,4/12/2012,Montpellier,1,1,Schalke 04,Champions League
+Fase de grupos partido 6,4/12/2012,Real Madrid,4,1,Ajax,Champions League
+Fase de grupos partido 6,4/12/2012,Dinamo Zagreb,1,1,Dynamo Kyiv,Champions League
+Fase de grupos partido 6,4/12/2012,PSG,2,1,Porto,Champions League
+Fase de grupos partido 6,4/12/2012,Olympiacos,2,1,Arsenal,Champions League
+Fase de grupos partido 6,4/12/2012,Malaga CF,2,2,Anderlecht,Champions League
+Fase de grupos partido 6,4/12/2012,Milan,0,1,Zenit,Champions League
+Fase de grupos partido 6,4/12/2012,Borussia Dortmund,1,0,Manchester City,Champions League
+Fase de grupos partido 6,5/12/2012,Braga,1,2,Galatasaray,Champions League
+Fase de grupos partido 6,5/12/2012,Manchester United,0,1,Cluj,Champions League
+Fase de grupos partido 6,5/12/2012,Shakhtar Donetsk,0,1,Juventus,Champions League
+Fase de grupos partido 6,5/12/2012,Lille,0,1,Valencia,Champions League
+Fase de grupos partido 6,5/12/2012,Celtic,2,1,Spartak Moskva,Champions League
+Fase de grupos partido 6,5/12/2012,Barcelona,0,0,Benfica,Champions League
+Fase de grupos partido 6,5/12/2012,Bayern Munich,4,1,BATE Borisov,Champions League
+Fase de grupos partido 6,5/12/2012,Chelsea,6,1,Nordsjælland,Champions League
+Octavos de final (ida),12/2/2013,Valencia,1,2,PSG,Champions League
+Octavos de final (ida),12/2/2013,Celtic,0,3,Juventus,Champions League
+Octavos de final (ida),13/2/2013,Real Madrid,1,1,Manchester United,Champions League
+Octavos de final (ida),13/2/2013,Shakhtar Donetsk,2,2,Borussia Dortmund,Champions League
+Octavos de final (ida),19/2/2013,Arsenal,1,3,Bayern Munich,Champions League
+Octavos de final (ida),19/2/2013,Porto,1,0,Malaga CF,Champions League
+Octavos de final (ida),20/2/2013,Milan,2,0,Barcelona,Champions League
+Octavos de final (ida),20/2/2013,Galatasaray,1,1,Schalke 04,Champions League
+Octavos de final (vuelta),5/3/2013,Borussia Dortmund,3,0,Shakhtar Donetsk,Champions League
+Octavos de final (vuelta),5/3/2013,Manchester United,1,2,Real Madrid,Champions League
+Octavos de final (vuelta),6/3/2013,PSG,1,1,Valencia,Champions League
+Octavos de final (vuelta),6/3/2013,Juventus,2,0,Celtic,Champions League
+Octavos de final (vuelta),12/3/2013,Barcelona,4,0,Milan,Champions League
+Octavos de final (vuelta),12/3/2013,Schalke 04,2,3,Galatasaray,Champions League
+Octavos de final (vuelta),13/3/2013,Bayern Munich,0,2,Arsenal,Champions League
+Octavos de final (vuelta),13/3/2013,Malaga CF,2,0,Porto,Champions League
+Cuartos de final (ida),2/4/2013,PSG,2,2,Barcelona,Champions League
+Cuartos de final (ida),2/4/2013,Bayern Munich,2,0,Juventus,Champions League
+Cuartos de final (ida),3/4/2013,Malaga CF,0,0,Borussia Dortmund,Champions League
+Cuartos de final (ida),3/4/2013,Real Madrid,3,0,Galatasaray,Champions League
+Cuartos de final (vuelta),9/4/2013,Borussia Dortmund,3,2,Malaga CF,Champions League
+Cuartos de final (vuelta),9/4/2013,Galatasaray,3,2,Real Madrid,Champions League
+Cuartos de final (vuelta),10/4/2013,Barcelona,1,1,PSG,Champions League
+Cuartos de final (vuelta),10/4/2013,Juventus,0,2,Bayern Munich,Champions League
+Semifinal (ida),23/4/2013,Bayern Munich,4,0,Barcelona,Champions League
+Semifinal (ida),24/4/2013,Borussia Dortmund,4,1,Real Madrid,Champions League
+Semifinal (vuelta),30/4/2013,Real Madrid,2,0,Borussia Dortmund,Champions League
+Semifinal (vuelta),1/5/2013,Barcelona,0,3,Bayern Munich,Champions League
+Final,25/5/2013,Borussia Dortmund,1,2,Bayern Munich,Champions League
+Fase de grupos partido 1,17/9/2013,Real Sociedad,0,2,Shakhtar Donetsk,Champions League
+Fase de grupos partido 1,17/9/2013,Galatasaray,1,6,Real Madrid,Champions League
+Fase de grupos partido 1,17/9/2013,Manchester United,4,2,Bayer Leverkusen,Champions League
+Fase de grupos partido 1,17/9/2013,Kobenhavn,1,1,Juventus,Champions League
+Fase de grupos partido 1,17/9/2013,Benfica,2,0,Anderlecht,Champions League
+Fase de grupos partido 1,17/9/2013,Olympiacos,1,4,PSG,Champions League
+Fase de grupos partido 1,17/9/2013,Bayern Munich,3,0,CSKA Moskva,Champions League
+Fase de grupos partido 1,17/9/2013,Viktoria Plzen,0,3,Manchester City,Champions League
+Fase de grupos partido 1,18/9/2013,Milan,2,0,Celtic,Champions League
+Fase de grupos partido 1,18/9/2013,Olympique de Marseille,1,2,Arsenal,Champions League
+Fase de grupos partido 1,18/9/2013,Barcelona,4,0,Ajax,Champions League
+Fase de grupos partido 1,18/9/2013,Schalke 04,3,0,Steaua Bucuresti,Champions League
+Fase de grupos partido 1,18/9/2013,Chelsea,1,2,Basel,Champions League
+Fase de grupos partido 1,18/9/2013,Napoli,2,1,Borussia Dortmund,Champions League
+Fase de grupos partido 1,18/9/2013,Austria Wien,0,1,Porto,Champions League
+Fase de grupos partido 1,18/9/2013,Atletico de Madrid,3,1,Zenit,Champions League
+Fase de grupos partido 2,1/10/2013,Zenit,0,0,Austria Wien,Champions League
+Fase de grupos partido 2,1/10/2013,Basel,0,1,Schalke 04,Champions League
+Fase de grupos partido 2,1/10/2013,Borussia Dortmund,3,0,Olympique de Marseille,Champions League
+Fase de grupos partido 2,1/10/2013,Arsenal,2,0,Napoli,Champions League
+Fase de grupos partido 2,1/10/2013,Porto,1,2,Atletico de Madrid,Champions League
+Fase de grupos partido 2,1/10/2013,Ajax,1,1,Milan,Champions League
+Fase de grupos partido 2,1/10/2013,Celtic,0,1,Barcelona,Champions League
+Fase de grupos partido 2,1/10/2013,Steaua Bucuresti,0,4,Chelsea,Champions League
+Fase de grupos partido 2,2/10/2013,PSG,3,0,Benfica,Champions League
+Fase de grupos partido 2,2/10/2013,Manchester City,1,3,Bayern Munich,Champions League
+Fase de grupos partido 2,2/10/2013,CSKA Moskva,3,2,Viktoria Plzen,Champions League
+Fase de grupos partido 2,2/10/2013,Anderlecht,0,3,Olympiacos,Champions League
+Fase de grupos partido 2,2/10/2013,Shakhtar Donetsk,1,1,Manchester United,Champions League
+Fase de grupos partido 2,2/10/2013,Real Madrid,4,0,Kobenhavn,Champions League
+Fase de grupos partido 2,2/10/2013,Juventus,2,2,Galatasaray,Champions League
+Fase de grupos partido 2,2/10/2013,Bayer Leverkusen,2,1,Real Sociedad,Champions League
+Fase de grupos partido 3,22/10/2013,Olympique de Marseille,1,2,Napoli,Champions League
+Fase de grupos partido 3,22/10/2013,Celtic,2,1,Ajax,Champions League
+Fase de grupos partido 3,22/10/2013,Steaua Bucuresti,1,1,Basel,Champions League
+Fase de grupos partido 3,22/10/2013,Porto,0,1,Zenit,Champions League
+Fase de grupos partido 3,22/10/2013,Austria Wien,0,3,Atletico de Madrid,Champions League
+Fase de grupos partido 3,22/10/2013,Schalke 04,0,3,Chelsea,Champions League
+Fase de grupos partido 3,22/10/2013,Milan,1,1,Barcelona,Champions League
+Fase de grupos partido 3,22/10/2013,Arsenal,1,2,Borussia Dortmund,Champions League
+Fase de grupos partido 3,23/10/2013,Bayer Leverkusen,4,0,Shakhtar Donetsk,Champions League
+Fase de grupos partido 3,23/10/2013,Benfica,1,1,Olympiacos,Champions League
+Fase de grupos partido 3,23/10/2013,Manchester United,1,0,Real Sociedad,Champions League
+Fase de grupos partido 3,23/10/2013,CSKA Moskva,1,2,Manchester City,Champions League
+Fase de grupos partido 3,23/10/2013,Bayern Munich,5,0,Viktoria Plzen,Champions League
+Fase de grupos partido 3,23/10/2013,Real Madrid,2,1,Juventus,Champions League
+Fase de grupos partido 3,23/10/2013,Galatasaray,3,1,Kobenhavn,Champions League
+Fase de grupos partido 3,23/10/2013,Anderlecht,0,5,PSG,Champions League
+Fase de grupos partido 4,5/11/2013,Manchester City,5,2,CSKA Moskva,Champions League
+Fase de grupos partido 4,5/11/2013,Viktoria Plzen,0,1,Bayern Munich,Champions League
+Fase de grupos partido 4,5/11/2013,Kobenhavn,1,0,Galatasaray,Champions League
+Fase de grupos partido 4,5/11/2013,Olympiacos,1,0,Benfica,Champions League
+Fase de grupos partido 4,5/11/2013,PSG,1,1,Anderlecht,Champions League
+Fase de grupos partido 4,5/11/2013,Juventus,2,2,Real Madrid,Champions League
+Fase de grupos partido 4,5/11/2013,Real Sociedad,0,0,Manchester United,Champions League
+Fase de grupos partido 4,5/11/2013,Shakhtar Donetsk,0,0,Bayer Leverkusen,Champions League
+Fase de grupos partido 4,6/11/2013,Chelsea,3,0,Schalke 04,Champions League
+Fase de grupos partido 4,6/11/2013,Borussia Dortmund,0,1,Arsenal,Champions League
+Fase de grupos partido 4,6/11/2013,Napoli,3,2,Olympique de Marseille,Champions League
+Fase de grupos partido 4,6/11/2013,Zenit,1,1,Porto,Champions League
+Fase de grupos partido 4,6/11/2013,Atletico de Madrid,4,0,Austria Wien,Champions League
+Fase de grupos partido 4,6/11/2013,Ajax,1,0,Celtic,Champions League
+Fase de grupos partido 4,6/11/2013,Barcelona,3,1,Milan,Champions League
+Fase de grupos partido 4,6/11/2013,Basel,1,1,Steaua Bucuresti,Champions League
+Fase de grupos partido 5,26/11/2013,Arsenal,2,0,Olympique de Marseille,Champions League
+Fase de grupos partido 5,26/11/2013,Steaua Bucuresti,0,0,Schalke 04,Champions League
+Fase de grupos partido 5,26/11/2013,Basel,1,0,Chelsea,Champions League
+Fase de grupos partido 5,26/11/2013,Ajax,2,1,Barcelona,Champions League
+Fase de grupos partido 5,26/11/2013,Borussia Dortmund,3,1,Napoli,Champions League
+Fase de grupos partido 5,26/11/2013,Zenit,1,1,Atletico de Madrid,Champions League
+Fase de grupos partido 5,26/11/2013,Celtic,0,3,Milan,Champions League
+Fase de grupos partido 5,26/11/2013,Porto,1,1,Austria Wien,Champions League
+Fase de grupos partido 5,27/11/2013,Manchester City,4,2,Viktoria Plzen,Champions League
+Fase de grupos partido 5,27/11/2013,Bayer Leverkusen,0,5,Manchester United,Champions League
+Fase de grupos partido 5,27/11/2013,CSKA Moskva,1,3,Bayern Munich,Champions League
+Fase de grupos partido 5,27/11/2013,PSG,2,1,Olympiacos,Champions League
+Fase de grupos partido 5,27/11/2013,Anderlecht,2,3,Benfica,Champions League
+Fase de grupos partido 5,27/11/2013,Juventus,3,1,Kobenhavn,Champions League
+Fase de grupos partido 5,27/11/2013,Real Madrid,4,1,Galatasaray,Champions League
+Fase de grupos partido 5,27/11/2013,Shakhtar Donetsk,4,0,Real Sociedad,Champions League
+Fase de grupos partido 6,10/12/2013,Viktoria Plzen,2,1,CSKA Moskva,Champions League
+Fase de grupos partido 6,10/12/2013,Real Sociedad,0,1,Bayer Leverkusen,Champions League
+Fase de grupos partido 6,10/12/2013,Olympiacos,3,1,Anderlecht,Champions League
+Fase de grupos partido 6,10/12/2013,Benfica,2,1,PSG,Champions League
+Fase de grupos partido 6,10/12/2013,Kobenhavn,0,2,Real Madrid,Champions League
+Fase de grupos partido 6,10/12/2013,Bayern Munich,2,3,Manchester City,Champions League
+Fase de grupos partido 6,10/12/2013,Manchester United,1,0,Shakhtar Donetsk,Champions League
+Fase de grupos partido 6,11/12/2013,Atletico de Madrid,2,0,Porto,Champions League
+Fase de grupos partido 6,11/12/2013,Chelsea,1,0,Steaua Bucuresti,Champions League
+Fase de grupos partido 6,11/12/2013,Barcelona,6,1,Celtic,Champions League
+Fase de grupos partido 6,11/12/2013,Milan,0,0,Ajax,Champions League
+Fase de grupos partido 6,11/12/2013,Olympique de Marseille,1,2,Borussia Dortmund,Champions League
+Fase de grupos partido 6,11/12/2013,Austria Wien,4,1,Zenit,Champions League
+Fase de grupos partido 6,11/12/2013,Napoli,2,0,Arsenal,Champions League
+Fase de grupos partido 6,11/12/2013,Galatasaray,1,0,Juventus,Champions League
+Fase de grupos partido 6,11/12/2013,Schalke 04,2,0,Basel,Champions League
+Octavos de final (ida),18/2/2014,Manchester City,0,2,Barcelona,Champions League
+Octavos de final (ida),18/2/2014,Bayer Leverkusen,0,4,PSG,Champions League
+Octavos de final (ida),19/2/2014,Arsenal,0,2,Bayern Munich,Champions League
+Octavos de final (ida),19/2/2014,Milan,0,1,Atletico de Madrid,Champions League
+Octavos de final (ida),25/2/2014,Olympiacos,2,0,Manchester United,Champions League
+Octavos de final (ida),25/2/2014,Zenit,2,4,Borussia Dortmund,Champions League
+Octavos de final (ida),26/2/2014,Schalke 04,1,6,Real Madrid,Champions League
+Octavos de final (ida),26/2/2014,Galatasaray,1,1,Chelsea,Champions League
+Octavos de final (vuelta),11/3/2014,Bayern Munich,1,1,Arsenal,Champions League
+Octavos de final (vuelta),11/3/2014,Atletico de Madrid,4,1,Milan,Champions League
+Octavos de final (vuelta),12/3/2014,Barcelona,2,1,Manchester City,Champions League
+Octavos de final (vuelta),12/3/2014,PSG,2,1,Bayer Leverkusen,Champions League
+Octavos de final (vuelta),18/3/2014,Real Madrid,3,1,Schalke 04,Champions League
+Octavos de final (vuelta),18/3/2014,Chelsea,2,0,Galatasaray,Champions League
+Octavos de final (vuelta),19/3/2014,Borussia Dortmund,1,2,Zenit,Champions League
+Octavos de final (vuelta),19/3/2014,Manchester United,3,0,Olympiacos,Champions League
+Cuartos de final (ida),1/4/2014,Barcelona,1,1,Atletico de Madrid,Champions League
+Cuartos de final (ida),1/4/2014,Manchester United,1,1,Bayern Munich,Champions League
+Cuartos de final (ida),2/4/2014,Real Madrid,3,0,Borussia Dortmund,Champions League
+Cuartos de final (ida),2/4/2014,PSG,3,1,Chelsea,Champions League
+Cuartos de final (vuelta),8/4/2014,Borussia Dortmund,2,0,Real Madrid,Champions League
+Cuartos de final (vuelta),8/4/2014,Chelsea,2,0,PSG,Champions League
+Cuartos de final (vuelta),9/4/2014,Bayern Munich,3,1,Manchester United,Champions League
+Cuartos de final (vuelta),9/4/2014,Atletico de Madrid,1,0,Barcelona,Champions League
+Semifinal (ida),22/4/2014,Atletico de Madrid,0,0,Chelsea,Champions League
+Semifinal (ida),23/4/2014,Real Madrid,1,0,Bayern Munich,Champions League
+Semifinal (vuelta),29/4/2014,Bayern Munich,0,4,Real Madrid,Champions League
+Semifinal (vuelta),30/4/2014,Chelsea,1,3,Atletico de Madrid,Champions League
+Final,24/5/2014,Real Madrid,4,1,Atletico de Madrid,Champions League
+Fase de grupos partido 1,16/9/2014,Juventus,2,0,Malmo,Champions League
+Fase de grupos partido 1,16/9/2014,Borussia Dortmund,2,0,Arsenal,Champions League
+Fase de grupos partido 1,16/9/2014,Liverpool,2,1,Ludogorets,Champions League
+Fase de grupos partido 1,16/9/2014,Real Madrid,5,1,Basel,Champions League
+Fase de grupos partido 1,16/9/2014,Monaco,1,0,Bayer Leverkusen,Champions League
+Fase de grupos partido 1,16/9/2014,Olympiacos,3,2,Atletico de Madrid,Champions League
+Fase de grupos partido 1,16/9/2014,Benfica,0,2,Zenit,Champions League
+Fase de grupos partido 1,16/9/2014,Galatasaray,1,1,Anderlecht,Champions League
+Fase de grupos partido 1,17/9/2014,Roma,5,1,CSKA Moskva,Champions League
+Fase de grupos partido 1,17/9/2014,Bayern Munich,1,0,Manchester City,Champions League
+Fase de grupos partido 1,17/9/2014,Barcelona,1,0,APOEL,Champions League
+Fase de grupos partido 1,17/9/2014,Ajax,1,1,PSG,Champions League
+Fase de grupos partido 1,17/9/2014,Chelsea,1,1,Schalke 04,Champions League
+Fase de grupos partido 1,17/9/2014,Maribor,1,1,Sporting de Portugal,Champions League
+Fase de grupos partido 1,17/9/2014,Porto,6,0,BATE Borisov,Champions League
+Fase de grupos partido 1,17/9/2014,Athletic Club,0,0,Shakhtar Donetsk,Champions League
+Fase de grupos partido 2,30/9/2014,CSKA Moskva,0,1,Bayern Munich,Champions League
+Fase de grupos partido 2,30/9/2014,Manchester City,1,1,Roma,Champions League
+Fase de grupos partido 2,30/9/2014,APOEL,1,1,Ajax,Champions League
+Fase de grupos partido 2,30/9/2014,Sporting de Portugal,0,1,Chelsea,Champions League
+Fase de grupos partido 2,30/9/2014,Schalke 04,1,1,Maribor,Champions League
+Fase de grupos partido 2,30/9/2014,Shakhtar Donetsk,2,2,Porto,Champions League
+Fase de grupos partido 2,30/9/2014,BATE Borisov,2,1,Athletic Club,Champions League
+Fase de grupos partido 2,30/9/2014,PSG,3,2,Barcelona,Champions League
+Fase de grupos partido 2,1/10/2014,Zenit,0,0,Monaco,Champions League
+Fase de grupos partido 2,1/10/2014,Anderlecht,0,3,Borussia Dortmund,Champions League
+Fase de grupos partido 2,1/10/2014,Basel,1,0,Liverpool,Champions League
+Fase de grupos partido 2,1/10/2014,Atletico de Madrid,1,0,Juventus,Champions League
+Fase de grupos partido 2,1/10/2014,Malmo,2,0,Olympiacos,Champions League
+Fase de grupos partido 2,1/10/2014,Bayer Leverkusen,3,1,Benfica,Champions League
+Fase de grupos partido 2,1/10/2014,Arsenal,4,1,Galatasaray,Champions League
+Fase de grupos partido 2,1/10/2014,Ludogorets,1,2,Real Madrid,Champions League
+Fase de grupos partido 3,21/10/2014,Barcelona,3,1,Ajax,Champions League
+Fase de grupos partido 3,21/10/2014,CSKA Moskva,2,2,Manchester City,Champions League
+Fase de grupos partido 3,21/10/2014,APOEL,0,1,PSG,Champions League
+Fase de grupos partido 3,21/10/2014,Porto,2,1,Athletic Club,Champions League
+Fase de grupos partido 3,21/10/2014,BATE Borisov,0,7,Shakhtar Donetsk,Champions League
+Fase de grupos partido 3,21/10/2014,Chelsea,6,0,Maribor,Champions League
+Fase de grupos partido 3,21/10/2014,Schalke 04,4,3,Sporting de Portugal,Champions League
+Fase de grupos partido 3,21/10/2014,Roma,1,7,Bayern Munich,Champions League
+Fase de grupos partido 3,22/10/2014,Galatasaray,0,4,Borussia Dortmund,Champions League
+Fase de grupos partido 3,22/10/2014,Anderlecht,1,2,Arsenal,Champions League
+Fase de grupos partido 3,22/10/2014,Monaco,0,0,Benfica,Champions League
+Fase de grupos partido 3,22/10/2014,Bayer Leverkusen,2,0,Zenit,Champions League
+Fase de grupos partido 3,22/10/2014,Liverpool,0,3,Real Madrid,Champions League
+Fase de grupos partido 3,22/10/2014,Ludogorets,1,0,Basel,Champions League
+Fase de grupos partido 3,22/10/2014,Olympiacos,1,0,Juventus,Champions League
+Fase de grupos partido 3,22/10/2014,Atletico de Madrid,5,0,Malmo,Champions League
+Fase de grupos partido 4,4/11/2014,Basel,4,2,Ludogorets,Champions League
+Fase de grupos partido 4,4/11/2014,Zenit,1,2,Bayer Leverkusen,Champions League
+Fase de grupos partido 4,4/11/2014,Malmo,0,2,Atletico de Madrid,Champions League
+Fase de grupos partido 4,4/11/2014,Juventus,3,2,Olympiacos,Champions League
+Fase de grupos partido 4,4/11/2014,Real Madrid,1,0,Liverpool,Champions League
+Fase de grupos partido 4,4/11/2014,Benfica,1,0,Monaco,Champions League
+Fase de grupos partido 4,4/11/2014,Arsenal,3,3,Anderlecht,Champions League
+Fase de grupos partido 4,4/11/2014,Borussia Dortmund,4,1,Galatasaray,Champions League
+Fase de grupos partido 4,5/11/2014,PSG,1,0,APOEL,Champions League
+Fase de grupos partido 4,5/11/2014,Manchester City,1,2,CSKA Moskva,Champions League
+Fase de grupos partido 4,5/11/2014,Bayern Munich,2,0,Roma,Champions League
+Fase de grupos partido 4,5/11/2014,Ajax,0,2,Barcelona,Champions League
+Fase de grupos partido 4,5/11/2014,Sporting de Portugal,4,2,Schalke 04,Champions League
+Fase de grupos partido 4,5/11/2014,Maribor,1,1,Chelsea,Champions League
+Fase de grupos partido 4,5/11/2014,Shakhtar Donetsk,5,0,BATE Borisov,Champions League
+Fase de grupos partido 4,5/11/2014,Athletic Club,0,2,Porto,Champions League
+Fase de grupos partido 5,25/11/2014,CSKA Moskva,1,1,Roma,Champions League
+Fase de grupos partido 5,25/11/2014,Manchester City,3,2,Bayern Munich,Champions League
+Fase de grupos partido 5,25/11/2014,APOEL,0,4,Barcelona,Champions League
+Fase de grupos partido 5,25/11/2014,PSG,3,1,Ajax,Champions League
+Fase de grupos partido 5,25/11/2014,Schalke 04,0,5,Chelsea,Champions League
+Fase de grupos partido 5,25/11/2014,Sporting de Portugal,3,1,Maribor,Champions League
+Fase de grupos partido 5,25/11/2014,BATE Borisov,0,3,Porto,Champions League
+Fase de grupos partido 5,25/11/2014,Shakhtar Donetsk,0,1,Athletic Club,Champions League
+Fase de grupos partido 5,26/11/2014,Arsenal,2,0,Borussia Dortmund,Champions League
+Fase de grupos partido 5,26/11/2014,Ludogorets,2,2,Liverpool,Champions League
+Fase de grupos partido 5,26/11/2014,Anderlecht,2,0,Galatasaray,Champions League
+Fase de grupos partido 5,26/11/2014,Bayer Leverkusen,0,1,Monaco,Champions League
+Fase de grupos partido 5,26/11/2014,Malmo,0,2,Juventus,Champions League
+Fase de grupos partido 5,26/11/2014,Atletico de Madrid,4,0,Olympiacos,Champions League
+Fase de grupos partido 5,26/11/2014,Basel,0,1,Real Madrid,Champions League
+Fase de grupos partido 5,26/11/2014,Zenit,1,0,Benfica,Champions League
+Fase de grupos partido 6,9/12/2014,Olympiacos,4,2,Malmo,Champions League
+Fase de grupos partido 6,9/12/2014,Juventus,0,0,Atletico de Madrid,Champions League
+Fase de grupos partido 6,9/12/2014,Liverpool,1,1,Basel,Champions League
+Fase de grupos partido 6,9/12/2014,Real Madrid,4,0,Ludogorets,Champions League
+Fase de grupos partido 6,9/12/2014,Monaco,2,0,Zenit,Champions League
+Fase de grupos partido 6,9/12/2014,Benfica,0,0,Bayer Leverkusen,Champions League
+Fase de grupos partido 6,9/12/2014,Galatasaray,1,4,Arsenal,Champions League
+Fase de grupos partido 6,9/12/2014,Borussia Dortmund,1,1,Anderlecht,Champions League
+Fase de grupos partido 6,10/12/2014,Roma,0,2,Manchester City,Champions League
+Fase de grupos partido 6,10/12/2014,Bayern Munich,3,0,CSKA Moskva,Champions League
+Fase de grupos partido 6,10/12/2014,Barcelona,3,1,PSG,Champions League
+Fase de grupos partido 6,10/12/2014,Ajax,4,0,APOEL,Champions League
+Fase de grupos partido 6,10/12/2014,Chelsea,3,1,Sporting de Portugal,Champions League
+Fase de grupos partido 6,10/12/2014,Maribor,0,1,Schalke 04,Champions League
+Fase de grupos partido 6,10/12/2014,Porto,1,1,Shakhtar Donetsk,Champions League
+Fase de grupos partido 6,10/12/2014,Athletic Club,2,0,BATE Borisov,Champions League
+Octavos de final (ida),17/2/2015,Shakhtar Donetsk,0,0,Bayern Munich,Champions League
+Octavos de final (ida),17/2/2015,PSG,1,1,Chelsea,Champions League
+Octavos de final (ida),18/2/2015,Basel,1,1,Porto,Champions League
+Octavos de final (ida),18/2/2015,Schalke 04,0,2,Real Madrid,Champions League
+Octavos de final (ida),24/2/2015,Juventus,2,1,Borussia Dortmund,Champions League
+Octavos de final (ida),24/2/2015,Manchester City,1,2,Barcelona,Champions League
+Octavos de final (ida),25/2/2015,Bayer Leverkusen,1,0,Atletico de Madrid,Champions League
+Octavos de final (ida),25/2/2015,Arsenal,1,3,Monaco,Champions League
+Octavos de final (vuelta),10/3/2015,Real Madrid,3,4,Schalke 04,Champions League
+Octavos de final (vuelta),10/3/2015,Porto,4,0,Basel,Champions League
+Octavos de final (vuelta),11/3/2015,Bayern Munich,7,0,Shakhtar Donetsk,Champions League
+Octavos de final (vuelta),11/3/2015,Chelsea,2,2,PSG,Champions League
+Octavos de final (vuelta),17/3/2015,Monaco,0,2,Arsenal,Champions League
+Octavos de final (vuelta),17/3/2015,Atletico de Madrid,1,0,Bayer Leverkusen,Champions League
+Octavos de final (vuelta),18/3/2015,Borussia Dortmund,0,3,Juventus,Champions League
+Octavos de final (vuelta),18/3/2015,Barcelona,1,0,Manchester City,Champions League
+Cuartos de final (ida),14/4/2015,Atletico de Madrid,0,0,Real Madrid,Champions League
+Cuartos de final (ida),14/4/2015,Juventus,1,0,Monaco,Champions League
+Cuartos de final (ida),15/4/2015,PSG,1,3,Barcelona,Champions League
+Cuartos de final (ida),15/4/2015,Porto,3,1,Bayern Munich,Champions League
+Cuartos de final (vuelta),21/4/2015,Bayern Munich,6,1,Porto,Champions League
+Cuartos de final (vuelta),21/4/2015,Barcelona,2,0,PSG,Champions League
+Cuartos de final (vuelta),22/4/2015,Monaco,0,0,Juventus,Champions League
+Cuartos de final (vuelta),22/4/2015,Real Madrid,1,0,Atletico de Madrid,Champions League
+Semifinal (ida),5/5/2014,Juventus,2,1,Real Madrid,Champions League
+Semifinal (ida),6/5/2014,Barcelona,3,0,Bayern Munich,Champions League
+Semifinal (vuelta),12/5/2014,Bayern Munich,3,2,Barcelona,Champions League
+Semifinal (vuelta),13/5/2014,Real Madrid,1,1,Juventus,Champions League
+Final,6/6/2015,Juventus,1,3,Barcelona,Champions League
+Fase de grupos partido 1,15/9/2015,Wolfsburg,1,0,CSKA Moskva,Champions League
+Fase de grupos partido 1,15/9/2015,PSV,2,1,Manchester United,Champions League
+Fase de grupos partido 1,15/9/2015,PSG,2,0,Malmo,Champions League
+Fase de grupos partido 1,15/9/2015,Galatasaray,0,2,Atletico de Madrid,Champions League
+Fase de grupos partido 1,15/9/2015,Benfica,2,0,Astana,Champions League
+Fase de grupos partido 1,15/9/2015,Manchester City,1,2,Juventus,Champions League
+Fase de grupos partido 1,15/9/2015,Sevilla,3,0,Bor. Monchengladbach,Champions League
+Fase de grupos partido 1,15/9/2015,Real Madrid,4,0,Shakhtar Donetsk,Champions League
+Fase de grupos partido 1,16/9/2015,Valencia,2,3,Zenit,Champions League
+Fase de grupos partido 1,16/9/2015,Dinamo Zagreb,2,1,Arsenal,Champions League
+Fase de grupos partido 1,16/9/2015,Olympiacos,0,3,Bayern Munich,Champions League
+Fase de grupos partido 1,16/9/2015,Dynamo Kyiv,1,1,Porto,Champions League
+Fase de grupos partido 1,16/9/2015,Chelsea,2,2,Maccabi Tel Aviv,Champions League
+Fase de grupos partido 1,16/9/2015,Gent,4,0,Olympique Lyonnais,Champions League
+Fase de grupos partido 1,16/9/2015,Roma,1,1,Barcelona,Champions League
+Fase de grupos partido 1,16/9/2015,Bayer Leverkusen,4,1,BATE Borisov,Champions League
+Fase de grupos partido 2,29/9/2015,Maccabi Tel Aviv,0,2,Dynamo Kyiv,Champions League
+Fase de grupos partido 2,29/9/2015,Bayern Munich,5,0,Dinamo Zagreb,Champions League
+Fase de grupos partido 2,29/9/2015,BATE Borisov,3,2,Roma,Champions League
+Fase de grupos partido 2,29/9/2015,Barcelona,2,1,Bayer Leverkusen,Champions League
+Fase de grupos partido 2,29/9/2015,Porto,2,1,Chelsea,Champions League
+Fase de grupos partido 2,29/9/2015,Olympique Lyonnais,0,1,Valencia,Champions League
+Fase de grupos partido 2,29/9/2015,Zenit,2,1,Gent,Champions League
+Fase de grupos partido 2,29/9/2015,Arsenal,2,3,Olympiacos,Champions League
+Fase de grupos partido 2,30/9/2015,Atletico de Madrid,1,2,Benfica,Champions League
+Fase de grupos partido 2,30/9/2015,Manchester United,2,1,Wolfsburg,Champions League
+Fase de grupos partido 2,30/9/2015,CSKA Moskva,3,2,PSV,Champions League
+Fase de grupos partido 2,30/9/2015,Astana,2,2,Galatasaray,Champions League
+Fase de grupos partido 2,30/9/2015,Bor. Monchengladbach,1,2,Manchester City,Champions League
+Fase de grupos partido 2,30/9/2015,Juventus,2,0,Sevilla,Champions League
+Fase de grupos partido 2,30/9/2015,Shakhtar Donetsk,0,3,PSG,Champions League
+Fase de grupos partido 2,30/9/2015,Malmo,0,2,Real Madrid,Champions League
+Fase de grupos partido 3,20/10/2015,Porto,2,0,Maccabi Tel Aviv,Champions League
+Fase de grupos partido 3,20/10/2015,Arsenal,2,0,Bayern Munich,Champions League
+Fase de grupos partido 3,20/10/2015,Bayer Leverkusen,4,4,Roma,Champions League
+Fase de grupos partido 3,20/10/2015,BATE Borisov,0,2,Barcelona,Champions League
+Fase de grupos partido 3,20/10/2015,Zenit,3,1,Olympique Lyonnais,Champions League
+Fase de grupos partido 3,20/10/2015,Valencia,2,1,Gent,Champions League
+Fase de grupos partido 3,20/10/2015,Dynamo Kyiv,0,0,Chelsea,Champions League
+Fase de grupos partido 3,20/10/2015,Dinamo Zagreb,0,1,Olympiacos,Champions League
+Fase de grupos partido 3,21/10/2015,Atletico de Madrid,4,0,Astana,Champions League
+Fase de grupos partido 3,21/10/2015,Juventus,0,0,Bor. Monchengladbach,Champions League
+Fase de grupos partido 3,21/10/2015,Malmo,1,0,Shakhtar Donetsk,Champions League
+Fase de grupos partido 3,21/10/2015,PSG,0,0,Real Madrid,Champions League
+Fase de grupos partido 3,21/10/2015,CSKA Moskva,1,1,Manchester United,Champions League
+Fase de grupos partido 3,21/10/2015,Wolfsburg,2,0,PSV,Champions League
+Fase de grupos partido 3,21/10/2015,Galatasaray,2,1,Benfica,Champions League
+Fase de grupos partido 3,21/10/2015,Manchester City,2,1,Sevilla,Champions League
+Fase de grupos partido 4,3/11/2015,Bor. Monchengladbach,1,1,Juventus,Champions League
+Fase de grupos partido 4,3/11/2015,Sevilla,1,3,Manchester City,Champions League
+Fase de grupos partido 4,3/11/2015,Benfica,2,1,Galatasaray,Champions League
+Fase de grupos partido 4,3/11/2015,Astana,0,0,Atletico de Madrid,Champions League
+Fase de grupos partido 4,3/11/2015,PSV,2,0,Wolfsburg,Champions League
+Fase de grupos partido 4,3/11/2015,Manchester United,1,0,CSKA Moskva,Champions League
+Fase de grupos partido 4,3/11/2015,Real Madrid,1,0,PSG,Champions League
+Fase de grupos partido 4,3/11/2015,Shakhtar Donetsk,4,0,Malmo,Champions League
+Fase de grupos partido 4,4/11/2015,Barcelona,3,0,BATE Borisov,Champions League
+Fase de grupos partido 4,4/11/2015,Roma,3,2,Bayer Leverkusen,Champions League
+Fase de grupos partido 4,4/11/2015,Bayern Munich,5,1,Arsenal,Champions League
+Fase de grupos partido 4,4/11/2015,Olympiacos,2,1,Dinamo Zagreb,Champions League
+Fase de grupos partido 4,4/11/2015,Maccabi Tel Aviv,1,3,Porto,Champions League
+Fase de grupos partido 4,4/11/2015,Chelsea,2,1,Dynamo Kyiv,Champions League
+Fase de grupos partido 4,4/11/2015,Olympique Lyonnais,0,2,Zenit,Champions League
+Fase de grupos partido 4,4/11/2015,Gent,1,0,Valencia,Champions League
+Fase de grupos partido 5,24/11/2015,Zenit,2,0,Valencia,Champions League
+Fase de grupos partido 5,24/11/2015,BATE Borisov,1,1,Bayer Leverkusen,Champions League
+Fase de grupos partido 5,24/11/2015,Barcelona,6,1,Roma,Champions League
+Fase de grupos partido 5,24/11/2015,Arsenal,3,0,Dinamo Zagreb,Champions League
+Fase de grupos partido 5,24/11/2015,Bayern Munich,4,0,Olympiacos,Champions League
+Fase de grupos partido 5,24/11/2015,Porto,0,2,Dynamo Kyiv,Champions League
+Fase de grupos partido 5,24/11/2015,Maccabi Tel Aviv,0,4,Chelsea,Champions League
+Fase de grupos partido 5,24/11/2015,Olympique Lyonnais,1,2,Gent,Champions League
+Fase de grupos partido 5,25/11/2015,Manchester United,0,0,PSV,Champions League
+Fase de grupos partido 5,25/11/2015,Malmo,0,5,PSG,Champions League
+Fase de grupos partido 5,25/11/2015,Shakhtar Donetsk,3,4,Real Madrid,Champions League
+Fase de grupos partido 5,25/11/2015,CSKA Moskva,0,2,Wolfsburg,Champions League
+Fase de grupos partido 5,25/11/2015,Bor. Monchengladbach,4,2,Sevilla,Champions League
+Fase de grupos partido 5,25/11/2015,Astana,2,2,Benfica,Champions League
+Fase de grupos partido 5,25/11/2015,Atletico de Madrid,2,0,Galatasaray,Champions League
+Fase de grupos partido 5,25/11/2015,Juventus,1,0,Manchester City,Champions League
+Fase de grupos partido 6,8/12/2015,Sevilla,1,0,Juventus,Champions League
+Fase de grupos partido 6,8/12/2015,Benfica,1,2,Atletico de Madrid,Champions League
+Fase de grupos partido 6,8/12/2015,Galatasaray,1,1,Astana,Champions League
+Fase de grupos partido 6,8/12/2015,PSV,2,1,CSKA Moskva,Champions League
+Fase de grupos partido 6,8/12/2015,Wolfsburg,3,2,Manchester United,Champions League
+Fase de grupos partido 6,8/12/2015,Real Madrid,8,0,Malmo,Champions League
+Fase de grupos partido 6,8/12/2015,PSG,2,0,Shakhtar Donetsk,Champions League
+Fase de grupos partido 6,8/12/2015,Manchester City,4,2,Bor. Monchengladbach,Champions League
+Fase de grupos partido 6,9/12/2015,Gent,2,1,Zenit,Champions League
+Fase de grupos partido 6,9/12/2015,Bayer Leverkusen,1,1,Barcelona,Champions League
+Fase de grupos partido 6,9/12/2015,Roma,0,0,BATE Borisov,Champions League
+Fase de grupos partido 6,9/12/2015,Dinamo Zagreb,0,2,Bayern Munich,Champions League
+Fase de grupos partido 6,9/12/2015,Olympiacos,0,3,Arsenal,Champions League
+Fase de grupos partido 6,9/12/2015,Dynamo Kyiv,1,0,Maccabi Tel Aviv,Champions League
+Fase de grupos partido 6,9/12/2015,Chelsea,2,0,Porto,Champions League
+Fase de grupos partido 6,9/12/2015,Valencia,0,2,Olympique Lyonnais,Champions League
+Octavos de final (ida),16/2/2016,Benfica,1,0,Zenit,Champions League
+Octavos de final (ida),16/2/2016,PSG,2,1,Chelsea,Champions League
+Octavos de final (ida),17/2/2016,Gent,2,3,Wolfsburg,Champions League
+Octavos de final (ida),17/2/2016,Roma,0,2,Real Madrid,Champions League
+Octavos de final (ida),23/2/2016,Arsenal,0,2,Barcelona,Champions League
+Octavos de final (ida),23/2/2016,Juventus,2,2,Bayern Munich,Champions League
+Octavos de final (ida),24/2/2016,Dynamo Kyiv,1,3,Manchester City,Champions League
+Octavos de final (ida),24/2/2016,PSV,0,0,Atletico de Madrid,Champions League
+Octavos de final (vuelta),8/3/2016,Real Madrid,2,0,Roma,Champions League
+Octavos de final (vuelta),8/3/2016,Wolfsburg,1,0,Gent,Champions League
+Octavos de final (vuelta),9/3/2016,Chelsea,1,2,PSG,Champions League
+Octavos de final (vuelta),9/3/2016,Zenit,1,2,Benfica,Champions League
+Octavos de final (vuelta),15/3/2016,Manchester City,0,0,Dynamo Kyiv,Champions League
+Octavos de final (vuelta),15/3/2016,Atletico de Madrid,0,0,PSV,Champions League
+Octavos de final (vuelta),16/3/2016,Barcelona,3,1,Arsenal,Champions League
+Octavos de final (vuelta),16/3/2016,Bayern Munich,4,2,Juventus,Champions League
+Cuartos de final (ida),5/4/2016,Bayern Munich,1,0,Benfica,Champions League
+Cuartos de final (ida),5/4/2016,Barcelona,2,1,Atletico de Madrid,Champions League
+Cuartos de final (ida),6/4/2016,Wolfsburg,2,0,Real Madrid,Champions League
+Cuartos de final (ida),6/4/2016,PSG,2,2,Manchester City,Champions League
+Cuartos de final (vuelta),12/4/2016,Manchester City,1,0,PSG,Champions League
+Cuartos de final (vuelta),12/4/2016,Real Madrid,3,0,Wolfsburg,Champions League
+Cuartos de final (vuelta),13/4/2016,Atletico de Madrid,2,0,Barcelona,Champions League
+Cuartos de final (vuelta),13/4/2016,Benfica,2,2,Bayern Munich,Champions League
+Semifinal (ida),26/4/2016,Manchester City,0,0,Real Madrid,Champions League
+Semifinal (ida),27/4/2016,Atletico de Madrid,1,0,Bayern Munich,Champions League
+Semifinal (vuelta),3/5/2016,Bayern Munich,2,1,Atletico de Madrid,Champions League
+Semifinal (vuelta),4/5/2016,Real Madrid,1,0,Manchester City,Champions League
+Final,28/5/2016,Real Madrid,1(5),1(3),Atletico de Madrid,Champions League
