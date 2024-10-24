@@ -18,10 +18,8 @@ public:
 
     Data();
     void Carga(string jornadaParam, string fechaParam, string localParam, string golesLocalParam, string golesVisitanteParam, string visitanteParam, string competicionParam);
-    string getLocal();
-    string getFecha();
-    string getCompeticion();
-    friend ostream& operator<<(ostream& cot, const Data& baseDatos);
+    
+
 };
 
 Data::Data()
@@ -48,25 +46,5 @@ void Data::Carga(string jornadaParam, string fechaParam, string localParam, stri
 }
 
 
-string Data::getLocal()
-{
-    return local;
-}
-
-string Data::getFecha()
-{
-    return fecha;
-}
-
-string Data::getCompeticion()
-{
-    return competicion;
-}
 
 
-
-ostream &operator<<(ostream &cot, const Data &baseDatos)
-{
-    cot << baseDatos.local << " ";
-    return cot;
-}
