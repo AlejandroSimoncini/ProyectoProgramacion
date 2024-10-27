@@ -54,11 +54,34 @@ void CargaVector(vector<Data> &ReferenceList)
     system("pause");
 }
 
-void CargaBaseHash(HashMapList<int, Data> &LoadDataBase, vector<Data> ReferenceList)
+void CargaBaseHash(HashMapList<int, Data> &LoadDataBase, vector<Data> ReferenceList) //Funcion que carga la base de datos HashMapList 
+//Coliciones basadas en base a la clave directa, formadas por codigo ASCII en el proceso
 {
-    for ()
+
+    Data auxDataBase; //Base de datos auxiliar para obtener la clave Hash
+    int LocalKey, VisitorKey; // claves para introduir en distintas posiciones;
+    string StringToASCII; // variable para pasar las palabras a ASCII
+
+    for (int i = 0; i < ReferenceList.size(); ++i)
     {
-        /* code */
+        auxDataBase = ReferenceList[i];
+        for (char c : auxDataBase.competicion)
+        {
+            LocalKey += c;
+            VisitorKey += c;
+        }  
+        for (char c : auxDataBase.local)
+        {
+            LocalKey += c;
+        }
+        for (char c : auxDataBase.visitante)
+        {
+            VisitorKey += c;
+        }
+        
+        LoadDataBase.put(LocalKey, ReferenceList[i]);
+        LoadDataBase.put(VisitorKey, ReferenceList[i]);
+        
     }
     
 }

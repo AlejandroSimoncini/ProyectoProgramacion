@@ -1,6 +1,7 @@
 #ifndef U05_HASH_HASHMAP_HASHMAPLIST_H_
 #define U05_HASH_HASHMAP_HASHMAPLIST_H_
 
+#include <vector>
 #include "HashEntry.h"
 #include "Lista.h"
 
@@ -21,7 +22,8 @@ public:
 
     HashMapList(unsigned int k, unsigned int (*hashFuncP)(K clave));
 
-    void getList(K clave);
+    //void getList(K clave);
+    std::vector<T> getDatosPorClave(K clave);
 
     void put(K clave, T valor);
 
@@ -173,10 +175,10 @@ template <class K, class T>
 unsigned int HashMapList<K, T>::hashFunc(K clave) {
     return (unsigned int) clave;
 }
-
+/*
 template <class K, class T>
 void HashMapList<K, T>::getList(K clave) { //Método que devuelve la lista según la clave que recibe
-    unsigned int pos = hashFuncP(clave); /*% tamanio;*/
+    unsigned int pos = hashFuncP(clave); //% tamanio;
 
     if(tabla[pos] == NULL) {
         throw 404;
@@ -189,6 +191,29 @@ void HashMapList<K, T>::getList(K clave) { //Método que devuelve la lista segú
         aux = aux->getSiguiente();
     }
 }
+*/
+
+
+template <class K, class T>
+std::vector<T> HashMapList<K, T>::getDatosPorClave(K clave) {
+    std::vector<T> datos; // Crear un vector para almacenar los datos
+    unsigned int pos = clave; // Usar la clave como la posición
+
+    // Verificar si hay una lista en esa posición
+    if (pos < tamanio && tabla[pos] != nullptr) {
+        Nodo<HashEntry<K, T>> *nodo = tabla[pos]->getInicio(); // Obtener el inicio de la lista
+
+        while (nodo != nullptr) {
+            datos.push_back(nodo->getDato().getValor()); // Añadir cada dato al vector
+            nodo = nodo->getSiguiente(); // Mover al siguiente nodo
+        }
+    }
+
+    return datos; // Devolver el vector
+}
+
+
+
 
 template <class K, class T>
 void HashMapList<K, T>::print() {
