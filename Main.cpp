@@ -7,14 +7,44 @@
 #include "GestorDeDatos.h"
 #include "Hash/HashMapList.h"
 #include "Hash/Lista.h"
-
+using namespace std;
 //!!Crear contador de condicionales en cada funcion que use ifs
+
 // agregue     cout << "Cantidad de IFs en ...: " << ConditionalCounter << endl; en las funciones 
 //porq vi q lo pusiste en la funcion de carga de la base de datos
 //no se si está bien, avisame sino lo saco
 
-using namespace std;
 
+/* yo digo de organizar el codigo asi, para q el main nos quede arriba y las funciones abajo
+void CargaVector(vector<Data>& ReferenceList);
+void Top5Goleadas(const vector<Data>& ReferenceList);
+void GolesTotales(const vector<Data>& ReferenceList);
+void PromedioGoles(const vector<Data>& ReferenceList);
+void TriunfosDerrotas(const vector<Data>& ReferenceList);
+void FechaMaxMinGoles(const vector<Data>& ReferenceList);
+void CompeticionConMasGoles(const vector<Data>& ReferenceList);
+
+int main() {
+    vector<Data> ReferenceList;
+    CargaVector(ReferenceList);
+
+    int opcion;
+    string equipo;
+
+    do {...
+*/
+int main()
+{
+    Data Datos;
+    vector<Data> List;                     // Base de datos en formato lista para un mejor manejo en calculos
+    HashMapList<int, Data> DataBase(9001); // Base de datos fuente en formato HashMapList para Busqueda y eliminacion de datos
+
+    CargaVector(List);             // Funcion Carga de la Base en formato Lista
+    CargaBaseHash(DataBase, List); // Funcion Carga de la Base en formato HashMapList
+
+    DataBase.print();
+    return 0;
+}
 void CargaVector(vector<Data> &ReferenceList)
 {
     int ConditionalCounter; // contador de condicionales
@@ -195,7 +225,8 @@ void GolesTotales(vector<Data> ReferenceList)
 
 /* 5.3) Promedio de goles a favor y en contra de cada equipo por competición. El
 usuario pedirá que se muestren por pantalla, de un equipo por vez y deberá
-mostrar discriminando por competición.*/
+mostrar discriminando por competición.*/ 
+//si no te gusta struct lo cambio pero me parecio mas ordenado asi por lo de la muestra del usuario desp
 struct PromedioGolesPorCompeticion
 {
     string competicion;
@@ -276,7 +307,7 @@ void PromedioGoles(vector<Data> ReferenceList)
     cout << "Cantidad de IFs en PromedioGoles: " << ConditionalCounter << endl;
 }
 
-/*La cantidad total de derrotas y de triunfos de cada equipo por competición. El
+/*5.4) La cantidad total de derrotas y de triunfos de cada equipo por competición. El
 usuario pedirá que se muestren por pantalla, de un equipo por vez y deberá
 mostrar discriminando por competición.*/
 
@@ -343,7 +374,7 @@ void TriunfosDerrotas(vector<Data> ReferenceList)
             nuevoResultado.derrotas = 0;
 
             if (partido.local == equipo)
-            { // Equipo juega como local
+            { 
                 if (stoi(partido.golesLocal) > stoi(partido.golesVisitante))
                 {
                     nuevoResultado.triunfos++;
@@ -354,7 +385,7 @@ void TriunfosDerrotas(vector<Data> ReferenceList)
                 }
             }
             else if (partido.visitante == equipo)
-            { // Equipo juega como visitante
+            { 
                 if (stoi(partido.golesVisitante) > stoi(partido.golesLocal))
                 {
                     nuevoResultado.triunfos++;
@@ -378,53 +409,7 @@ void TriunfosDerrotas(vector<Data> ReferenceList)
     cout << "Cantidad de IFs en TriunfosDerrotas: " << ConditionalCounter << endl;
 }
 
-void AgregarPartido(vector<Data> &ReferenceList)
-{
-    int ConditionalCounter = 0;
-    string jornada, fecha, local, golesLocal, golesVisitante, visitante, competicion;
-    Data Parameters;
-
-    cout << "Ingrese la jornada: ";
-    cin >> jornada;
-    cout << "Ingrese la fecha: ";
-    cin >> fecha;
-    cout << "Ingrese el equipo local: ";
-    cin >> local;
-    cout << "Ingrese los goles del equipo local: ";
-    cin >> golesLocal;
-    cout << "Ingrese los goles del equipo visitante: ";
-    cin >> golesVisitante;
-    cout << "Ingrese el equipo visitante: ";
-    cin >> visitante;
-    cout << "Ingrese la competicion: ";
-    cin >> competicion;
-
-    Parameters.Carga(jornada, fecha, local, golesLocal, golesVisitante, visitante, competicion);
-    ReferenceList.push_back(Parameters);
-
-    cout << "Partido agregado correctamente" << endl;
-}
-
-void EliminarPartido(vector<Data> &ReferenceList)
-{
-    int ConditionalCounter = 0;
-    string fecha;
-    cout << "Ingrese la fecha del partido a eliminar: ";
-    cin >> fecha;
-
-    for (int i = 0; i < ReferenceList.size(); i++)
-    {
-        ConditionalCounter++;
-        if (ReferenceList[i].fecha == fecha)
-        {
-            ReferenceList.erase(ReferenceList.begin() + i);
-            cout << "Partido eliminado correctamente" << endl;
-            return;
-        }
-    }
-    cout << "No se encontro el partido" << endl;
-}
-/*La fecha con más goles y la fecha con menos goles de cada equipo por
+/*5.5) La fecha con más goles y la fecha con menos goles de cada equipo por
 competición. El usuario pedirá que se muestren por pantalla, de un equipo por
 vez y deberá mostrar discriminando por competición.
 */
@@ -515,7 +500,7 @@ void FechaMaxMinGoles(vector<Data> ReferenceList)
     cout << "Cantidad de IFs en FechaMaxMinGoles: " << ConditionalCounter << endl;
 }
 
-/*La competición con más goles convertidos.*/
+/*5.6) La competición con más goles convertidos.*/
 struct GolesCompeticion
 {
     string competicion;
@@ -569,24 +554,93 @@ void CompeticionConMasGoles(vector<Data> ReferenceList)
     cout << "La competición con más goles convertidos es: " << competicionMaxGoles << " con un total de " << maxGoles << " goles." << endl;
     cout << "Cantidad de IFs en CompeticionConMasGoles: " << ConditionalCounter << endl;
 }
-/* El equipo con más goles convertidos y el equipo con menos goles convertidos de
+/* 5.7) El equipo con más goles convertidos y el equipo con menos goles convertidos de
 todas las competiciones y por competición.*/
 struct GolesEquipo
 {
     string equipo;
     int totalGoles = 0;
 };
+//falta
 
-
-int main()
+/*6) agregar,eliminar,modificar*/
+void AgregarPartido(vector<Data> &ReferenceList)
 {
-    Data Datos;
-    vector<Data> List;                     // Base de datos en formato lista para un mejor manejo en calculos
-    HashMapList<int, Data> DataBase(9001); // Base de datos fuente en formato HashMapList para Busqueda y eliminacion de datos
+    int ConditionalCounter = 0;
+    string jornada, fecha, local, golesLocal, golesVisitante, visitante, competicion;
+    Data Parameters;
 
-    CargaVector(List);             // Funcion Carga de la Base en formato Lista
-    CargaBaseHash(DataBase, List); // Funcion Carga de la Base en formato HashMapList
+    cout << "Ingrese la jornada: ";
+    cin >> jornada;
+    cout << "Ingrese la fecha: ";
+    cin >> fecha;
+    cout << "Ingrese el equipo local: ";
+    cin >> local;
+    cout << "Ingrese los goles del equipo local: ";
+    cin >> golesLocal;
+    cout << "Ingrese los goles del equipo visitante: ";
+    cin >> golesVisitante;
+    cout << "Ingrese el equipo visitante: ";
+    cin >> visitante;
+    cout << "Ingrese la competicion: ";
+    cin >> competicion;
 
-    DataBase.print();
-    return 0;
+    Parameters.Carga(jornada, fecha, local, golesLocal, golesVisitante, visitante, competicion);
+    ReferenceList.push_back(Parameters);
+
+    cout << "Partido agregado correctamente" << endl;
 }
+
+void EliminarPartido(vector<Data> &ReferenceList)
+{
+    int ConditionalCounter = 0;
+    string fecha;
+    cout << "Ingrese la fecha del partido a eliminar: ";
+    cin >> fecha;
+
+    for (int i = 0; i < ReferenceList.size(); i++)
+    {
+        ConditionalCounter++;
+        if (ReferenceList[i].fecha == fecha)
+        {
+            ReferenceList.erase(ReferenceList.begin() + i);
+            cout << "Partido eliminado correctamente" << endl;
+            return;
+        }
+    }
+    cout << "No se encontro el partido" << endl;
+}
+void ModificarPartido(vector<Data> &ReferenceList)
+{
+    int ConditionalCounter = 0;
+    string fecha;
+    cout << "Ingrese la fecha del partido a modificar: ";
+    cin >> fecha;
+
+    for (int i = 0; i < ReferenceList.size(); i++)
+    {
+        ConditionalCounter++;
+        if (ReferenceList[i].fecha == fecha)
+        {
+            cout << "Ingrese la jornada: ";
+            cin >> ReferenceList[i].jornada;
+            cout << "Ingrese la fecha: ";
+            cin >> ReferenceList[i].fecha;
+            cout << "Ingrese el equipo local: ";
+            cin >> ReferenceList[i].local;
+            cout << "Ingrese los goles del equipo local: ";
+            cin >> ReferenceList[i].golesLocal;
+            cout << "Ingrese los goles del equipo visitante: ";
+            cin >> ReferenceList[i].golesVisitante;
+            cout << "Ingrese el equipo visitante: ";
+            cin >> ReferenceList[i].visitante;
+            cout << "Ingrese la competicion: ";
+            cin >> ReferenceList[i].competicion;
+
+            cout << "Partido modificado correctamente" << endl;
+            return;
+        }
+    }
+    cout << "No se encontro el partido" << endl;
+}
+/*7) consultas dinamicas */
