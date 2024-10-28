@@ -9,10 +9,8 @@
 #include "Hash/Lista.h"
 using namespace std;
 //!!Crear contador de condicionales en cada funcion que use ifs
-
-// agregue     cout << "Cantidad de IFs en ...: " << ConditionalCounter << endl; en las funciones 
-//porq vi q lo pusiste en la funcion de carga de la base de datos
-//no se si está bien, avisame sino lo saco
+/*me parece que deberiamos hacer distintos cpp
+para los distintos puntos porq el main se hace larguisimo*/
 
 
 /* yo digo de organizar el codigo asi, para q el main nos quede arriba y las funciones abajo
@@ -644,3 +642,42 @@ void ModificarPartido(vector<Data> &ReferenceList)
     cout << "No se encontro el partido" << endl;
 }
 /*7) consultas dinamicas */
+/*a) Todos los Resultados de un equipo y en una competición específica ingresado por el
+usuario.*/
+
+//!!! si te gusta asi, hago las otras 
+void ResultadosEquipoCompeticion(vector<Data> ReferenceList)
+{
+    int ConditionalCounter = 0;
+    string equipo, competicion;
+    cout << "Ingrese el nombre del equipo: ";
+    cin >> equipo;
+    cout << "Ingrese el nombre de la competición: ";
+    cin >> competicion;
+
+    for (Data &partido : ReferenceList)
+    {
+        ConditionalCounter++;
+        if ((partido.local == equipo || partido.visitante == equipo) && partido.competicion == competicion)
+        {
+            cout << "Jornada: " << partido.jornada << " Fecha: " << partido.fecha << " Local: " << partido.local << " Goles Local: " << partido.golesLocal << " Goles Visitante: " << partido.golesVisitante << " Visitante: " << partido.visitante << " Competición: " << partido.competicion << endl;
+        }
+    }
+    cout << "Cantidad de IFs en ResultadosEquipoCompeticion: " << ConditionalCounter << endl;
+}
+
+
+/*b) Resultados de un equipo entre dos fechas ingresadas por el usuario.*/
+
+/*c) Comparación de rendimiento general (cantidad de goles a favor y en contra) entre dos
+equipos ingresados por el usuario. Ambos equipos no necesariamente se han enfrentado
+entre ellos y pueden estar en diferentes competiciones. Discriminar por competición.*/
+
+/*d) Comparación de rendimiento particular de dos equipos. Analizando sólo los partidos en
+los que se han enfrentado esos dos equipos indicar cantidad de partidos que han jugado
+en contra, la cantidad de empates y cuál de los dos ha ganado más partidos.*/
+
+/*e) Umbral: el usuario podrá ingresar un umbral de cantidad de goles convertidos por
+partido en promedio, especificar si quiere por arriba o por debajo de ese umbral y el
+programa deberá filtrar a todos los equipos de todas las competiciones que hayan
+convertido dentro de ese umbral, incluyéndose. Discriminar por competición*/
