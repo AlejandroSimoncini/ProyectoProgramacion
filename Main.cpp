@@ -1,19 +1,17 @@
 #include <iostream>
-#include <fstream>
 #include <sstream>
 #include <vector>
 #include <algorithm>
 
 #include "GestorDeDatos.h"
+#include"FuncionesOrd_and_Valores.h"
+#include"FuncionesDeMenu.h"
 #include "Hash/HashMapList.h"
 #include "Hash/Lista.h"
 using namespace std;
 //!!Crear contador de condicionales en cada funcion que use ifs
-/*me parece que deberiamos hacer distintos cpp
-para los distintos puntos porq el main se hace larguisimo*/
 
 
-/* yo digo de organizar el codigo asi, para q el main nos quede arriba y las funciones abajo
 void CargaVector(vector<Data>& ReferenceList);
 void Top5Goleadas(const vector<Data>& ReferenceList);
 void GolesTotales(const vector<Data>& ReferenceList);
@@ -22,27 +20,158 @@ void TriunfosDerrotas(const vector<Data>& ReferenceList);
 void FechaMaxMinGoles(const vector<Data>& ReferenceList);
 void CompeticionConMasGoles(const vector<Data>& ReferenceList);
 
-int main() {
-    vector<Data> ReferenceList;
-    CargaVector(ReferenceList);
 
-    int opcion;
-    string equipo;
-
-    do {...
-*/
 int main()
 {
     Data Datos;
     vector<Data> List;                     // Base de datos en formato lista para un mejor manejo en calculos
     HashMapList<int, Data> DataBase(9001); // Base de datos fuente en formato HashMapList para Busqueda y eliminacion de datos
 
+
+    bool quicksortused = false;
+    int key, yesOrNo;
+    string equipo, competicion;
+    vector<Data> TeamMatches;
+    bool SeguirDelMenu = true;
+
     CargaVector(List);             // Funcion Carga de la Base en formato Lista
     CargaBaseHash(DataBase, List); // Funcion Carga de la Base en formato HashMapList
 
-    DataBase.print();
+    int op;
+
+    do
+    {
+
+    MainMenu();
+    cin >> op;
+    switch (op)
+    {
+    case 0:
+
+        break;
+    case 1:
+        if ( quicksortused == false)
+        {
+            /* codigo top 5 goleadas quicksort */
+        }else
+        {
+            //codigo top 5 goleadas buble
+        }
+        
+        break;
+    case 2:
+        bool seguir = true;
+        do
+        {
+            system("cls");
+            cout << "Ingrese el nombre del equipo que desea ver " << endl;
+            cin >> equipo;
+            cout << "Ingrese la competicion" << endl;
+            cin >> competicion;
+            key = GenerateKey(equipo, competicion); // funcion que genera la llave, esta en archivo aparte
+            
+            TeamMatches = DataBase.getDatosPorClave(key); // vector del equipo solicitado
+            // aca va lo tuyo marti
+
+            system("pause");
+            system("cls");
+            cout << "Desea ver los datos de otro equipo ?" << endl;
+            cout << "Ingrese 1 para Si" << endl;
+            cin >> yesOrNo;
+
+            if (yesOrNo != 1)
+            {
+                seguir == false;
+            }
+            
+        } while (seguir == true);
+        
+        break;
+    case 3:
+        bool seguir = true;
+        do
+        {
+            system("cls");
+            cout << "Ingrese el nombre del equipo que desea saber su promedio de goles " << endl;
+            cin >> equipo;
+            cout << "Ingrese la competicion" << endl;
+            cin >> competicion;
+            key = GenerateKey(equipo, competicion); // funcion que genera la llave, esta en archivo aparte
+            
+            TeamMatches = DataBase.getDatosPorClave(key); // vector del equipo solicitado
+            // aca va lo tuyo marti
+
+            system("pause");
+            system("cls");
+            cout << "Desea ver los datos de otro equipo ?" << endl;
+            cout << "Ingrese 1 para Si" << endl;
+            cin >> yesOrNo;
+
+            if (yesOrNo != 1)
+            {
+                seguir == false;
+            }
+        } while (seguir == true);
+        
+        break;
+    case 4:
+        bool seguir = true;
+        do
+        {
+            system("cls");
+            cout << "Ingrese el nombre del equipo que desea saber sus derrotas y victorias " << endl;
+            cin >> equipo;
+            cout << "Ingrese la competicion" << endl;
+            cin >> competicion;
+            key = GenerateKey(equipo, competicion); // funcion que genera la llave, esta en archivo aparte
+            
+            TeamMatches = DataBase.getDatosPorClave(key); // vector del equipo solicitado
+            // aca va lo tuyo marti
+
+            system("pause");
+            system("cls");
+            cout << "Desea ver los datos de otro equipo ?" << endl;
+            cout << "Ingrese 1 para Si" << endl;
+            cin >> yesOrNo;
+
+            if (yesOrNo != 1)
+            {
+                seguir == false;
+            }
+        } while (seguir == true);
+        break;  
+    case 5:
+
+        break;  
+    case 6:
+
+        break;
+    case 7:
+
+        break;
+    default:
+        system("cls");
+        cout << "Opcion no valida, intentelo nuevamente " << endl;
+        system("pause");
+        system("cls");
+
+        break;
+    }
+    } while (SeguirDelMenu == true);
+    
+    
+
+
+    
     return 0;
 }
+
+
+
+
+
+
+
 void CargaVector(vector<Data> &ReferenceList)
 {
     int ConditionalCounter; // contador de condicionales
@@ -111,13 +240,13 @@ void CargaBaseHash(HashMapList<int, Data> &LoadDataBase, vector<Data> ReferenceL
         LoadDataBase.put(VisitorKey, ReferenceList[i]);
     }
 }
-
+//5.1)
 /*Los primeros 5 partidos con mayor cantidad de goles (sumar goles de ambos
 equipos) y de cada competición que haya en la base de datos. De haber más de 5
 por igualdad en cantidad de goles, filtrar por fecha, dejando los más recientes. De
 haber similitud de fechas, filtrar por criterio programador.
 */
-
+//para usar siempre 
 void Top5Goleadas(vector<Data> ReferenceList)
 {
     int ConditionalCounter = 0;
@@ -129,7 +258,7 @@ void Top5Goleadas(vector<Data> ReferenceList)
         int goles = stoi(partido.golesLocal) + stoi(partido.golesVisitante);
         golesPartidos.push_back(make_pair(goles, partido));
     }
-
+//bubble sort 
     // Ordena los partidos por cantidad de goles en orden descendente
     sort(golesPartidos.begin(), golesPartidos.end(), [](const pair<int, Data> &a, const pair<int, Data> &b)
          { return a.first > b.first; });
@@ -145,11 +274,16 @@ void Top5Goleadas(vector<Data> ReferenceList)
     }
     cout << "Cantidad de IFs en Top5Goleadas: " << ConditionalCounter << endl;
 }
+//hacer top5goleadas con un quick sort para usar 1 vez
+
+
 
 /*5.2) Los goles totales a favor y en contra de cada equipo por competición. El usuario
 pedirá que se muestren por pantalla, de un equipo por vez y deberá mostrar
 discriminando por competición.*/
 
+//vector de estructuras
+/*
 struct GolesPorCompeticion
 {
     string competicion;
@@ -220,11 +354,84 @@ void GolesTotales(vector<Data> ReferenceList)
     }
     cout << "Cantidad de IFs en GolesTotales: " << ConditionalCounter << endl;
 }
+*/
+
+// Estructura para almacenar promedios de goles por competición
+struct PromedioGolesPorCompeticion {
+    string competicion;
+    int golesAFavor = 0;
+    int golesEnContra = 0;
+    int partidosJugados = 0;
+};
+
+// Función para filtrar datos del equipo en el vector, basada en la competición
+vector<Data> getDatosPorClaveVector(const vector<Data> &ReferenceList, const string &competicion) {
+    vector<Data> datosFiltrados;
+
+    for (const Data &partido : ReferenceList) {
+        if (partido.competicion == competicion) {
+            datosFiltrados.push_back(partido);
+        }
+    }
+    return datosFiltrados;
+}
+
+// Función principal para calcular el promedio de goles por competición
+void PromedioGoles(const vector<Data> &ReferenceList) {
+    int ConditionalCounter = 0;
+    string equipo;
+    vector<PromedioGolesPorCompeticion> resultados;
+
+    cout << "Ingrese el equipo: ";
+    cin >> equipo;
+
+    // Agrupamos las competiciones únicas
+    for (const auto &partido : ReferenceList) {
+        vector<Data> datosCompeticion = getDatosPorClaveVector(ReferenceList, partido.competicion);
+        PromedioGolesPorCompeticion promedio;
+
+        promedio.competicion = partido.competicion;
+
+        // Calcula el promedio para cada competición
+        for (const auto &match : datosCompeticion) {
+            bool esLocal = match.local == equipo;
+            bool esVisitante = match.visitante == equipo;
+
+            ConditionalCounter += esLocal || esVisitante ? 1 : 0;
+
+            if (esLocal || esVisitante) {
+                promedio.golesAFavor += esLocal ? stoi(match.golesLocal) : stoi(match.golesVisitante);
+                promedio.golesEnContra += esLocal ? stoi(match.golesVisitante) : stoi(match.golesLocal);
+                promedio.partidosJugados++;
+            }
+        }
+        // Solo se agregan competiciones en las que el equipo haya jugado
+        if (promedio.partidosJugados > 0) {
+            resultados.push_back(promedio);
+        }
+    }
+
+    cout << "Promedio de goles a favor y en contra de " << equipo << " por competición:" << endl;
+    for (const auto &resultado : resultados) {
+        cout << "Competición: " << resultado.competicion << endl;
+        if (resultado.partidosJugados > 0) {
+            cout << "   Promedio de goles a favor: " 
+                 << static_cast<double>(resultado.golesAFavor) / resultado.partidosJugados << endl;
+            cout << "   Promedio de goles en contra: " 
+                 << static_cast<double>(resultado.golesEnContra) / resultado.partidosJugados << endl;
+        } else {
+            cout << "   El equipo no jugó ningún partido en esta competición" << endl;
+        }
+    }
+    cout << "Cantidad de IFs en PromedioGoles: " << ConditionalCounter << endl;
+}
+
 
 /* 5.3) Promedio de goles a favor y en contra de cada equipo por competición. El
 usuario pedirá que se muestren por pantalla, de un equipo por vez y deberá
 mostrar discriminando por competición.*/ 
-//si no te gusta struct lo cambio pero me parecio mas ordenado asi por lo de la muestra del usuario desp
+
+/*vector de tipo promedios por competicion */
 struct PromedioGolesPorCompeticion
 {
     string competicion;
@@ -561,6 +768,9 @@ struct GolesEquipo
 };
 //falta
 
+
+
+
 /*6) agregar,eliminar,modificar*/
 void AgregarPartido(vector<Data> &ReferenceList)
 {
@@ -587,8 +797,10 @@ void AgregarPartido(vector<Data> &ReferenceList)
     ReferenceList.push_back(Parameters);
 
     cout << "Partido agregado correctamente" << endl;
+    
 }
-
+// cambiar metodo de busqueda -> hash
+/**/
 void EliminarPartido(vector<Data> &ReferenceList)
 {
     int ConditionalCounter = 0;
@@ -681,3 +893,6 @@ en contra, la cantidad de empates y cuál de los dos ha ganado más partidos.*/
 partido en promedio, especificar si quiere por arriba o por debajo de ese umbral y el
 programa deberá filtrar a todos los equipos de todas las competiciones que hayan
 convertido dentro de ese umbral, incluyéndose. Discriminar por competición*/
+
+
+
