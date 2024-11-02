@@ -246,186 +246,48 @@ equipos) y de cada competición que haya en la base de datos. De haber más de 5
 por igualdad en cantidad de goles, filtrar por fecha, dejando los más recientes. De
 haber similitud de fechas, filtrar por criterio programador.
 */
-//para usar siempre 
-void Top5Goleadas(vector<Data> ReferenceList)
-{
+
+// Función que usa Bubble Sort para ordenar los partidos por cantidad de goles
+void Top5GoleadasBubbleSort(HashMapList<int, Data>& DataBase, const string& competicion) {
     int ConditionalCounter = 0;
+    int key = GenerateKey("", competicion); // Llave para acceder a la competición
+    vector<Data> CompeticionMatches = DataBase.getDatosPorClave(key);
+
     vector<pair<int, Data>> golesPartidos;
 
-    for (Data &partido : ReferenceList)
-    {
-        ConditionalCounter++;
+    // Llenar el vector con pares de cantidad de goles y datos del partido
+    for (const Data& partido : CompeticionMatches) {
         int goles = stoi(partido.golesLocal) + stoi(partido.golesVisitante);
         golesPartidos.push_back(make_pair(goles, partido));
     }
-//bubble sort 
-    // Ordena los partidos por cantidad de goles en orden descendente
-    sort(golesPartidos.begin(), golesPartidos.end(), [](const pair<int, Data> &a, const pair<int, Data> &b)
-         { return a.first > b.first; });
 
-    cout << "Top 5 partidos con más goles: " << endl;
-    for (int i = 0; i < 5 && i < golesPartidos.size(); i++)
-    {
-        ConditionalCounter++;
-        cout << golesPartidos[i].second.local << " " << golesPartidos[i].second.golesLocal
-             << " vs " << golesPartidos[i].second.visitante << " "
-             << golesPartidos[i].second.golesVisitante << " [" << golesPartidos[i].second.fecha << "] "
-             << golesPartidos[i].second.competicion << " - Total de goles: " << golesPartidos[i].first << endl;
+    // Ordenar usando Bubble Sort (orden descendente)
+    for (size_t i = 0; i < golesPartidos.size(); i++) {
+        for (size_t j = 0; j < golesPartidos.size() - i - 1; j++) {
+            ConditionalCounter++;
+            if (golesPartidos[j].first < golesPartidos[j + 1].first) {
+                swap(golesPartidos[j], golesPartidos[j + 1]);
+            }
+        }
     }
-    cout << "Cantidad de IFs en Top5Goleadas: " << ConditionalCounter << endl;
-}
-//hacer top5goleadas con un quick sort para usar 1 vez
 
+    // Mostrar los 5 partidos con más goles
+    cout << "Top 5 partidos con más goles en la competición " << competicion << ":" << endl;
+    for (size_t i = 0; i < 5 && i < golesPartidos.size(); i++) {
+        const Data& partido = golesPartidos[i].second;
+        cout << partido.local << " " << partido.golesLocal << " vs " << partido.visitante 
+             << " " << partido.golesVisitante << " [" << partido.fecha << "] - Total de goles: " 
+             << golesPartidos[i].first << endl;
+    }
+
+    cout << "Cantidad de IFs en Top5GoleadasBubbleSort: " << ConditionalCounter << endl;
+}
+//falta la de quick sort
 
 
 /*5.2) Los goles totales a favor y en contra de cada equipo por competición. El usuario
 pedirá que se muestren por pantalla, de un equipo por vez y deberá mostrar
 discriminando por competición.*/
-
-//vector de estructuras
-/*
-struct GolesPorCompeticion
-{
-    string competicion;
-    int golesAFavor = 0;
-    int golesEnContra = 0;
-};
-
-void GolesTotales(vector<Data> ReferenceList)
-{
-    int ConditionalCounter = 0;
-    string equipo;
-    vector<GolesPorCompeticion> resultados; // Vector q almacena goles por competicion
-
-    cout << "Ingrese el equipo: ";
-    cin >> equipo;
-
-    for (Data &partido : ReferenceList)
-    {
-        ConditionalCounter++;
-        bool encontrado = false;
-
-        for (auto &resultado : resultados)
-        {
-            if (resultado.competicion == partido.competicion)
-            {
-                encontrado = true;
-
-                if (partido.local == equipo)
-                { // Equipo juega como local
-                    resultado.golesAFavor += stoi(partido.golesLocal);
-                    resultado.golesEnContra += stoi(partido.golesVisitante);
-                }
-                else if (partido.visitante == equipo)
-                { // Equipo juega como visitante
-                    resultado.golesAFavor += stoi(partido.golesVisitante);
-                    resultado.golesEnContra += stoi(partido.golesLocal);
-                }
-                break;
-            }
-        }
-
-        // Si la competición no estaba en el vector ->>se agrega una nueva entrada
-        if (!encontrado)
-        {
-            GolesPorCompeticion nuevoResultado;
-            nuevoResultado.competicion = partido.competicion;
-
-            if (partido.local == equipo)
-            { // Equipo juega como local
-                nuevoResultado.golesAFavor += stoi(partido.golesLocal);
-                nuevoResultado.golesEnContra += stoi(partido.golesVisitante);
-            }
-            else if (partido.visitante == equipo)
-            { // Equipo juega como visitante
-                nuevoResultado.golesAFavor += stoi(partido.golesVisitante);
-                nuevoResultado.golesEnContra += stoi(partido.golesLocal);
-            }
-            resultados.push_back(nuevoResultado);
-        }
-    }
-
-    cout << "Goles a favor y en contra de " << equipo << " por competición:" << endl;
-    for (const auto &resultado : resultados)
-    {
-        cout << "Competición: " << resultado.competicion << endl;
-        cout << "   Goles a favor: " << resultado.golesAFavor << endl;
-        cout << "   Goles en contra: " << resultado.golesEnContra << endl;
-    }
-    cout << "Cantidad de IFs en GolesTotales: " << ConditionalCounter << endl;
-}
-*/
-
-// Estructura para almacenar promedios de goles por competición
-struct PromedioGolesPorCompeticion {
-    string competicion;
-    int golesAFavor = 0;
-    int golesEnContra = 0;
-    int partidosJugados = 0;
-};
-
-// Función para filtrar datos del equipo en el vector, basada en la competición
-vector<Data> getDatosPorClaveVector(const vector<Data> &ReferenceList, const string &competicion) {
-    vector<Data> datosFiltrados;
-
-    for (const Data &partido : ReferenceList) {
-        if (partido.competicion == competicion) {
-            datosFiltrados.push_back(partido);
-        }
-    }
-    return datosFiltrados;
-}
-
-// Función principal para calcular el promedio de goles por competición
-void PromedioGoles(const vector<Data> &ReferenceList) {
-    int ConditionalCounter = 0;
-    string equipo;
-    vector<PromedioGolesPorCompeticion> resultados;
-
-    cout << "Ingrese el equipo: ";
-    cin >> equipo;
-
-    // Agrupamos las competiciones únicas
-    for (const auto &partido : ReferenceList) {
-        vector<Data> datosCompeticion = getDatosPorClaveVector(ReferenceList, partido.competicion);
-        PromedioGolesPorCompeticion promedio;
-
-        promedio.competicion = partido.competicion;
-
-        // Calcula el promedio para cada competición
-        for (const auto &match : datosCompeticion) {
-            bool esLocal = match.local == equipo;
-            bool esVisitante = match.visitante == equipo;
-
-            ConditionalCounter += esLocal || esVisitante ? 1 : 0;
-
-            if (esLocal || esVisitante) {
-                promedio.golesAFavor += esLocal ? stoi(match.golesLocal) : stoi(match.golesVisitante);
-                promedio.golesEnContra += esLocal ? stoi(match.golesVisitante) : stoi(match.golesLocal);
-                promedio.partidosJugados++;
-            }
-        }
-        // Solo se agregan competiciones en las que el equipo haya jugado
-        if (promedio.partidosJugados > 0) {
-            resultados.push_back(promedio);
-        }
-    }
-
-    cout << "Promedio de goles a favor y en contra de " << equipo << " por competición:" << endl;
-    for (const auto &resultado : resultados) {
-        cout << "Competición: " << resultado.competicion << endl;
-        if (resultado.partidosJugados > 0) {
-            cout << "   Promedio de goles a favor: " 
-                 << static_cast<double>(resultado.golesAFavor) / resultado.partidosJugados << endl;
-            cout << "   Promedio de goles en contra: " 
-                 << static_cast<double>(resultado.golesEnContra) / resultado.partidosJugados << endl;
-        } else {
-            cout << "   El equipo no jugó ningún partido en esta competición" << endl;
-        }
-    }
-    cout << "Cantidad de IFs en PromedioGoles: " << ConditionalCounter << endl;
-}
-
 
 /* 5.3) Promedio de goles a favor y en contra de cada equipo por competición. El
 usuario pedirá que se muestren por pantalla, de un equipo por vez y deberá
@@ -439,75 +301,26 @@ struct PromedioGolesPorCompeticion
     int golesEnContra = 0;
     int partidosJugados = 0;
 };
-
-void PromedioGoles(vector<Data> ReferenceList)
-{
+void PromedioGoles(HashMapList<int, Data>& DataBase, const string& equipo, const string& competicion) {
     int ConditionalCounter = 0;
-    string equipo;
-    vector<PromedioGolesPorCompeticion> resultados;
+    int key = GenerateKey(equipo, competicion);
+    vector<Data> TeamMatches = DataBase.getDatosPorClave(key);
 
-    cout << "Ingrese el equipo: ";
-    cin >> equipo;
+    int golesAFavor = 0, golesEnContra = 0, partidosJugados = 0;
 
-    for (Data &partido : ReferenceList)
-    {
+    for (const Data& partido : TeamMatches) {
         ConditionalCounter++;
-        bool encontrado = false;
-
-        for (auto &resultado : resultados)
-        {
-            if (resultado.competicion == partido.competicion)
-            {
-                encontrado = true;
-
-                if (partido.local == equipo)
-                {
-                    resultado.golesAFavor += stoi(partido.golesLocal);
-                    resultado.golesEnContra += stoi(partido.golesVisitante);
-                }
-                else if (partido.visitante == equipo)
-                {
-                    resultado.golesAFavor += stoi(partido.golesVisitante);
-                    resultado.golesEnContra += stoi(partido.golesLocal);
-                }
-                resultado.partidosJugados++;
-                break;
-            }
-        }
-
-        if (!encontrado)
-        {
-            PromedioGolesPorCompeticion nuevoResultado;
-            nuevoResultado.competicion = partido.competicion;
-
-            if (partido.local == equipo)
-            {
-                nuevoResultado.golesAFavor += stoi(partido.golesLocal);
-                nuevoResultado.golesEnContra += stoi(partido.golesVisitante);
-            }
-            else if (partido.visitante == equipo)
-            {
-                nuevoResultado.golesAFavor += stoi(partido.golesVisitante);
-                nuevoResultado.golesEnContra += stoi(partido.golesLocal);
-            }
-            nuevoResultado.partidosJugados++;
-            resultados.push_back(nuevoResultado);
-        }
+        bool esLocal = (partido.local == equipo);
+        golesAFavor += esLocal ? stoi(partido.golesLocal) : stoi(partido.golesVisitante);
+        golesEnContra += esLocal ? stoi(partido.golesVisitante) : stoi(partido.golesLocal);
+        partidosJugados++;
     }
 
-    cout << "Promedio de goles a favor y en contra de " << equipo << " por competición:" << endl;
-    for (const auto &resultado : resultados)
-    {
-        cout << "Competición: " << resultado.competicion << endl;
-        if (resultado.partidosJugados > 0)
-        {
-            cout << "   Promedio de goles a favor: " << static_cast<double>(resultado.golesAFavor) / resultado.partidosJugados << endl;
-            cout << "   Promedio de goles en contra: " << static_cast<double>(resultado.golesEnContra) / resultado.partidosJugados << endl;
-        }
-        else
-        {
-            cout << "   El equipo no jugó ningún partido en esta competición" << endl;
-        }
+    if (partidosJugados > 0) {
+        cout << "Promedio de goles a favor: " << static_cast<double>(golesAFavor) / partidosJugados << endl;
+        cout << "Promedio de goles en contra: " << static_cast<double>(golesEnContra) / partidosJugados << endl;
+    } else {
+        cout << "No hay partidos registrados para " << equipo << " en la competición " << competicion << endl;
     }
     cout << "Cantidad de IFs en PromedioGoles: " << ConditionalCounter << endl;
 }
@@ -522,95 +335,25 @@ struct ResultadoCompeticion
     int triunfos;
     int derrotas;
 };
-
-void TriunfosDerrotas(vector<Data> ReferenceList)
-{
+void TriunfosDerrotas(HashMapList<int, Data>& DataBase, const string& equipo, const string& competicion) {
     int ConditionalCounter = 0;
-    string equipo;
-    vector<ResultadoCompeticion> resultados; // Vector q almacena resultados por competicion
+    int key = GenerateKey(equipo, competicion);
+    vector<Data> TeamMatches = DataBase.getDatosPorClave(key);
 
-    cout << "Ingrese el nombre del equipo: ";
-    cin >> equipo;
+    int triunfos = 0, derrotas = 0;
 
-    // Recorre todos los partidos para acumular triunfos y derrotas por competición
-    for (Data &partido : ReferenceList)
-    {
+    for (const Data& partido : TeamMatches) {
         ConditionalCounter++;
-        bool encontrado = false;
-
-        // Busca si la competición ya existe en el vector
-        for (auto &resultado : resultados)
-        {
-            if (resultado.competicion == partido.competicion)
-            {
-                encontrado = true;
-                if (partido.local == equipo)
-                { // Equipo juega como local
-                    if (stoi(partido.golesLocal) > stoi(partido.golesVisitante))
-                    {
-                        resultado.triunfos++; 
-                    }
-                    else if (stoi(partido.golesLocal) < stoi(partido.golesVisitante))
-                    {
-                        resultado.derrotas++; 
-                    }
-                }
-                else if (partido.visitante == equipo)
-                { // Equipo juega como visitante
-                    if (stoi(partido.golesVisitante) > stoi(partido.golesLocal))
-                    {
-                        resultado.triunfos++; 
-                    }
-                    else if (stoi(partido.golesVisitante) < stoi(partido.golesLocal))
-                    {
-                        resultado.derrotas++;
-                    }
-                }
-                break;
-            }
-        }
-
-        // Si la competición no estaba en el vector ->> se agrega una nueva entrada
-        if (!encontrado)
-        {
-            ResultadoCompeticion nuevoResultado;
-            nuevoResultado.competicion = partido.competicion;
-            nuevoResultado.triunfos = 0;
-            nuevoResultado.derrotas = 0;
-
-            if (partido.local == equipo)
-            { 
-                if (stoi(partido.golesLocal) > stoi(partido.golesVisitante))
-                {
-                    nuevoResultado.triunfos++;
-                }
-                else if (stoi(partido.golesLocal) < stoi(partido.golesVisitante))
-                {
-                    nuevoResultado.derrotas++;
-                }
-            }
-            else if (partido.visitante == equipo)
-            { 
-                if (stoi(partido.golesVisitante) > stoi(partido.golesLocal))
-                {
-                    nuevoResultado.triunfos++;
-                }
-                else if (stoi(partido.golesVisitante) < stoi(partido.golesLocal))
-                {
-                    nuevoResultado.derrotas++;
-                }
-            }
-            resultados.push_back(nuevoResultado);
-        }
+        bool esLocal = (partido.local == equipo);
+        int golesEquipo = esLocal ? stoi(partido.golesLocal) : stoi(partido.golesVisitante);
+        int golesOponente = esLocal ? stoi(partido.golesVisitante) : stoi(partido.golesLocal);
+        
+        triunfos += (golesEquipo > golesOponente);
+        derrotas += (golesEquipo < golesOponente);
     }
 
-    cout << "Triunfos y derrotas de " << equipo << " por competición:" << endl;
-    for (const auto &resultado : resultados)
-    {
-        cout << "Competición: " << resultado.competicion << endl;
-        cout << "   Triunfos: " << resultado.triunfos << endl;
-        cout << "   Derrotas: " << resultado.derrotas << endl;
-    }
+    cout << "Triunfos de " << equipo << ": " << triunfos << endl;
+    cout << "Derrotas de " << equipo << ": " << derrotas << endl;
     cout << "Cantidad de IFs en TriunfosDerrotas: " << ConditionalCounter << endl;
 }
 
@@ -627,83 +370,7 @@ struct FechaGoles
     int minGoles;
 };
 
-void FechaMaxMinGoles(vector<Data> ReferenceList)
-{
-    int ConditionalCounter = 0;
-    string equipo;
-    vector<FechaGoles> resultados; // Vector q almacena los resultados por competicion
-
-    cout << "Ingrese el nombre del equipo: ";
-    cin >> equipo;
-
-    // Recorre todos los partidos para calcular la fecha con + y - goles por competición
-    for (Data &partido : ReferenceList)
-    {
-        ConditionalCounter++;
-        bool encontrado = false;
-
-        // Busca si la competición ya existe en el vector
-        for (auto &resultado : resultados)
-        {
-            if (resultado.competicion == partido.competicion)
-            {
-                encontrado = true;
-                int golesEquipo = 0;
-
-                // goles del equipo en el partido actual
-                if (partido.local == equipo)
-                {
-                    golesEquipo = stoi(partido.golesLocal);
-                }
-                else if (partido.visitante == equipo)
-                {
-                    golesEquipo = stoi(partido.golesVisitante);
-                }
-
-                // Actualiza las fechas de max y min goles para esta competición
-                if (golesEquipo > resultado.maxGoles)
-                {
-                    resultado.maxGoles = golesEquipo;
-                    resultado.fechaMaxGoles = partido.fecha;
-                }
-                if (golesEquipo < resultado.minGoles)
-                {
-                    resultado.minGoles = golesEquipo;
-                    resultado.fechaMinGoles = partido.fecha;
-                }
-                break;
-            }
-        }
-
-        // Si la competición no estaba en el vector ->> se agrega una nueva entrada
-        if (!encontrado)
-        {
-            FechaGoles nuevoResultado;
-            nuevoResultado.competicion = partido.competicion;
-
-            if (partido.local == equipo)
-            {
-                nuevoResultado.maxGoles = nuevoResultado.minGoles = stoi(partido.golesLocal);
-                nuevoResultado.fechaMaxGoles = nuevoResultado.fechaMinGoles = partido.fecha;
-            }
-            else if (partido.visitante == equipo)
-            {
-                nuevoResultado.maxGoles = nuevoResultado.minGoles = stoi(partido.golesVisitante);
-                nuevoResultado.fechaMaxGoles = nuevoResultado.fechaMinGoles = partido.fecha;
-            }
-            resultados.push_back(nuevoResultado);
-        }
-    }
-
-    cout << "Fecha con más y menos goles de " << equipo << " por competición:" << endl;
-    for (const auto &resultado : resultados)
-    {
-        cout << "Competición: " << resultado.competicion << endl;
-        cout << "   Fecha con más goles: " << resultado.fechaMaxGoles << " - Goles: " << resultado.maxGoles << endl;
-        cout << "   Fecha con menos goles: " << resultado.fechaMinGoles << " - Goles: " << resultado.minGoles << endl;
-    }
-    cout << "Cantidad de IFs en FechaMaxMinGoles: " << ConditionalCounter << endl;
-}
+void FechaMaxMinGoles()
 
 /*5.6) La competición con más goles convertidos.*/
 struct GolesCompeticion
@@ -712,53 +379,22 @@ struct GolesCompeticion
     int totalGoles = 0;
 };
 
-void CompeticionConMasGoles(vector<Data> ReferenceList)
-{
+void CompeticionConMasGoles(HashMapList<int, Data>& DataBase, const string& equipo, const string& competicion){
     int ConditionalCounter = 0;
-    vector<GolesCompeticion> resultados; // Vector que almacena los goles por competición
+    int key = GenerateKey(equipo, competicion);
+    vector<Data> TeamMatches = DataBase.getDatosPorClave(key);
 
-    // Recorre todos los partidos para acumular los goles por competición
-    for (Data &partido : ReferenceList)
-    {
+    int totalGoles = 0;
+
+    for (const Data& partido : TeamMatches) {
         ConditionalCounter++;
-        bool encontrado = false;
-
-        // Buscar si la competición ya existe en el vector resultados
-        for (auto &resultado : resultados)
-        {
-            if (resultado.competicion == partido.competicion)
-            {
-                encontrado = true;
-                resultado.totalGoles += stoi(partido.golesLocal) + stoi(partido.golesVisitante);
-                break;
-            }
-        }
-
-        // Si la competición no estaba en el vector -> se agrega una nueva entrada
-        if (!encontrado)
-        {
-            GolesCompeticion nuevoResultado;
-            nuevoResultado.competicion = partido.competicion;
-            nuevoResultado.totalGoles = stoi(partido.golesLocal) + stoi(partido.golesVisitante);
-            resultados.push_back(nuevoResultado);
-        }
+        totalGoles += stoi(partido.golesLocal) + stoi(partido.golesVisitante);
     }
 
-    string competicionMaxGoles;
-    int maxGoles = 0;
-
-    for (const auto &resultado : resultados)
-    {
-        if (resultado.totalGoles > maxGoles)
-        {
-            maxGoles = resultado.totalGoles;
-            competicionMaxGoles = resultado.competicion;
-        }
-    }
-
-    cout << "La competición con más goles convertidos es: " << competicionMaxGoles << " con un total de " << maxGoles << " goles." << endl;
+    cout << "Total de goles convertidos por " << competicion << ": " << totalGoles << endl;
     cout << "Cantidad de IFs en CompeticionConMasGoles: " << ConditionalCounter << endl;
 }
+
 /* 5.7) El equipo con más goles convertidos y el equipo con menos goles convertidos de
 todas las competiciones y por competición.*/
 struct GolesEquipo
@@ -766,10 +402,21 @@ struct GolesEquipo
     string equipo;
     int totalGoles = 0;
 };
-//falta
+void EquipoConMasGoles(HashMapList<int, Data>& DataBase, const string& equipo, const string& competicion){
+    int ConditionalCounter = 0;
+    int key = GenerateKey(equipo, competicion);
+    vector<Data> TeamMatches = DataBase.getDatosPorClave(key);
 
+    int totalGoles = 0;
 
+    for (const Data& partido : TeamMatches) {
+        ConditionalCounter++;
+        totalGoles += stoi(partido.golesLocal) + stoi(partido.golesVisitante);
+    }
 
+    cout << "Total de goles convertidos por " << competicion << ": " << totalGoles << endl;
+    cout << "Cantidad de IFs en CompeticionConMasGoles: " << ConditionalCounter << endl;
+}
 
 /*6) agregar,eliminar,modificar*/
 void AgregarPartido(vector<Data> &ReferenceList)
@@ -801,7 +448,7 @@ void AgregarPartido(vector<Data> &ReferenceList)
 }
 // cambiar metodo de busqueda -> hash
 /**/
-void EliminarPartido(vector<Data> &ReferenceList)
+void EliminarPartido(HashMapList<int, Data> &DataBase, vector<Data> &ReferenceList)
 {
     int ConditionalCounter = 0;
     string fecha;
@@ -820,7 +467,8 @@ void EliminarPartido(vector<Data> &ReferenceList)
     }
     cout << "No se encontro el partido" << endl;
 }
-void ModificarPartido(vector<Data> &ReferenceList)
+
+void ModificarPartido(HashMapList<int, Data> &DataBase, vector<Data> &ReferenceList)
 {
     int ConditionalCounter = 0;
     string fecha;
@@ -853,34 +501,50 @@ void ModificarPartido(vector<Data> &ReferenceList)
     }
     cout << "No se encontro el partido" << endl;
 }
+
 /*7) consultas dinamicas */
 /*a) Todos los Resultados de un equipo y en una competición específica ingresado por el
 usuario.*/
 
 //!!! si te gusta asi, hago las otras 
-void ResultadosEquipoCompeticion(vector<Data> ReferenceList)
-{
+void ResultadosEquipoCompeticion(HashMapList<int, Data>& DataBase, const string& equipo, const string& competicion) {
     int ConditionalCounter = 0;
-    string equipo, competicion;
-    cout << "Ingrese el nombre del equipo: ";
-    cin >> equipo;
-    cout << "Ingrese el nombre de la competición: ";
-    cin >> competicion;
+    int key = GenerateKey(equipo, competicion);
+    vector<Data> TeamMatches = DataBase.getDatosPorClave(key);
 
-    for (Data &partido : ReferenceList)
-    {
+    cout << "Resultados del equipo " << equipo << " en la competición " << competicion << ":" << endl;
+    for (const Data &partido : TeamMatches) {
         ConditionalCounter++;
-        if ((partido.local == equipo || partido.visitante == equipo) && partido.competicion == competicion)
-        {
-            cout << "Jornada: " << partido.jornada << " Fecha: " << partido.fecha << " Local: " << partido.local << " Goles Local: " << partido.golesLocal << " Goles Visitante: " << partido.golesVisitante << " Visitante: " << partido.visitante << " Competición: " << partido.competicion << endl;
-        }
+        cout << "Jornada: " << partido.jornada << " Fecha: " << partido.fecha 
+             << " Local: " << partido.local << " Goles Local: " << partido.golesLocal 
+             << " Goles Visitante: " << partido.golesVisitante << " Visitante: " 
+             << partido.visitante << " Competición: " << partido.competicion << endl;
     }
+
     cout << "Cantidad de IFs en ResultadosEquipoCompeticion: " << ConditionalCounter << endl;
 }
 
 
-/*b) Resultados de un equipo entre dos fechas ingresadas por el usuario.*/
 
+/*b) Resultados de un equipo entre dos fechas ingresadas por el usuario.*/
+void ResultadosEquipoFechas(HashMapList<int, Data>& DataBase, const string& equipo, const string& fechaInicio, const string& fechaFin) {
+    int ConditionalCounter = 0;
+    int key = GenerateKey(equipo, "");
+    vector<Data> TeamMatches = DataBase.getDatosPorClave(key);
+
+    cout << "Resultados del equipo " << equipo << " entre " << fechaInicio << " y " << fechaFin << ":" << endl;
+    for (const Data &partido : TeamMatches) {
+        ConditionalCounter++;
+        if (partido.fecha >= fechaInicio && partido.fecha <= fechaFin) {
+            cout << "Jornada: " << partido.jornada << " Fecha: " << partido.fecha 
+                 << " Local: " << partido.local << " Goles Local: " << partido.golesLocal 
+                 << " Goles Visitante: " << partido.golesVisitante << " Visitante: " 
+                 << partido.visitante << " Competición: " << partido.competicion << endl;
+        }
+    }
+
+    cout << "Cantidad de IFs en ResultadosEquipoFechas: " << ConditionalCounter << endl;
+}
 /*c) Comparación de rendimiento general (cantidad de goles a favor y en contra) entre dos
 equipos ingresados por el usuario. Ambos equipos no necesariamente se han enfrentado
 entre ellos y pueden estar en diferentes competiciones. Discriminar por competición.*/
