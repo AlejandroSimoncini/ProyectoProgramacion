@@ -42,7 +42,21 @@ void MainMenu()
     cout << "6. La competicion que tiene mayor cantidad de goles " << endl;
     cout << "7. El equipo con mas goles hechos y el equipo con menos goles hecho de todas las tablas de competiciones " << endl;
     cout << endl;
-    cout << "0. Salir"
+    cout << "0. Salir";
 }
 
+
+void MenuDeModificaciones()
+{
+    system("cls");
+    cout << "Que desea modificar" << endl;
+    cout << "1. Jornada" << endl;
+    cout << "2. Fecha" << endl;
+    cout << "3. Equipo local" << endl;
+    cout << "4. Goles local " << endl;
+    cout << "5. Goles visitante " << endl;
+    cout << "6. Equipo visitante " << endl;
+    cout << "7. Competicion " << endl;
+    cout << endl << "0. Salir" << endl;
+}
 

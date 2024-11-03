@@ -79,7 +79,7 @@ void HashMapList<K, T>::put(K clave, T valor) {
 }
 template <class K, class T>
 void HashMapList<K, T>::remove(K clave) {
-    unsigned int pos = hashFuncP(clave) % tamanio; // Calcular el índice hash
+    unsigned int pos = hashFuncP(clave); // Calcular el índice hash
 
     // Verificar si hay una lista enlazada en esa posición
     if (tabla[pos] != nullptr) {

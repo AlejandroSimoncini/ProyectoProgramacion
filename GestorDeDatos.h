@@ -47,4 +47,3 @@ void Data::Carga(string jornadaParam, string fechaParam, string localParam, stri
 
 
 
-

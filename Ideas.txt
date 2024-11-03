@@ -8,7 +8,7 @@ cosas q se hablaron en clase 28/10
 ifs de las librerias no cuentan
 else no +
 menu 5 fecha con mas goles a favor, muestra en pantalla la fecha con mas goles a favor 
-5.4) entra "real madrid" salida: derrotas y triunfos del equipo de las competiciones q pertenezca
+
 presentacion
 modalidad:
 Presentación oral defendiendo el código realizado. Programar defensa oral de 15 minutos siguiendo el
@@ -19,5 +19,7 @@ siguiente esquema:
 q tan eficiente es y de q otra manera podria haber sido mas eficiente )
 ○ Preguntas del docente (7 minutos) (si lo anterior sale bien, menos preguntas va a tener el profe)
 
-
+punto 5 -> 
+punto 6 -> modificar partido 
+punto 7 -> rendimiento general, rendimiento particular
 
