@@ -346,7 +346,7 @@ haber similitud de fechas, filtrar por criterio programador.
 // Función que usa Bubble Sort para ordenar los partidos por cantidad de goles
 void Top5GoleadasBubbleSort(HashMapList<int, Data>& DataBase, const string& competicion) {
     int ConditionalCounter = 0;
-    //int key = GenerateKey("", competicion); // Llave para acceder a la competición
+    int key = GenerateKey("", competicion); // Llave para acceder a la competición
     vector<Data> CompeticionMatches = DataBase.getDatosPorClave(key);
 
     vector<pair<int, Data>> golesPartidos;
@@ -361,7 +361,9 @@ void Top5GoleadasBubbleSort(HashMapList<int, Data>& DataBase, const string& comp
     for (size_t i = 0; i < golesPartidos.size(); i++) {
         for (size_t j = 0; j < golesPartidos.size() - i - 1; j++) {
             ConditionalCounter++;
-            if (golesPartidos[j].first < golesPartidos[j + 1].first) {
+            if ((golesPartidos[j].first < golesPartidos[j + 1].first) ||
+                (golesPartidos[j].first == golesPartidos[j + 1].first && 
+                golesPartidos[j].second.fecha < golesPartidos[j + 1].second.fecha)) {
                 swap(golesPartidos[j], golesPartidos[j + 1]);
             }
         }
@@ -389,6 +391,10 @@ void Top5GoleadasQuickSort(HashMapList<int, Data>& DataBase, const string& compe
         int goles = stoi(partido.golesLocal) + stoi(partido.golesVisitante);
         golesPartidos.push_back(make_pair(goles, partido));
     }
+        auto compare = [&] (const pair<int, Data>& a, const pair<int, Data>& b) {
+        ConditionalCounter++;
+        return (a.first < b.first) || (a.first == b.first && a.second.fecha > b.second.fecha);
+    };
 
       auto quickSort = [&](int inicio, int fin) {
         if (inicio < fin) {
@@ -397,18 +403,17 @@ void Top5GoleadasQuickSort(HashMapList<int, Data>& DataBase, const string& compe
             int j = fin;
 
             while (i <= j) {
-                while (golesPartidos[i].first < pivot) i++;
-                while (golesPartidos[j].first > pivot) j--;
+                while (i< golesPartidos.size() && compare (golesPartidos [i], make_pair (pivot, Data{}))) i++;
+                while (j>=0 && compare (make_pair (pivot, Data{}), golesPartidos [j])) j--;
                 if (i <= j) {
                     swap(golesPartidos[i], golesPartidos[j]);
                     i++;
                     j--;
                 }
-                ConditionalCounter++;
             }
 
-            quickSort(inicio, j); // Subarreglo izquierdo
-            quickSort(i, fin);    // Subarreglo derecho
+            if (inicio <j) quickSort(inicio, j); // Subarreglo izquierdo
+            if (i<fin ) quickSort(i, fin);    // Subarreglo derecho
         }
     };
 
@@ -523,7 +528,7 @@ void TriunfosDerrotas(HashMapList<int, Data>& DataBase, const string& equipo, co
 competición. El usuario pedirá que se muestren por pantalla, de un equipo por
 vez y deberá mostrar discriminando por competición.
 */
-/*
+
 struct FechaGoles
 {
     string competicion;
@@ -539,9 +544,9 @@ void FechaMaxMinGoles(HashMapList<int, Data>& DataBase, const string& equipo, co
     vector<Data> TeamMatches = DataBase.getDatosPorClave(key);
 
     string fechaMaxGoles;
-    int maxGoles = 0;
+    int maxGoles = -1;
     string fechaMinGoles;
-    int minGoles = INT_MAX;
+    int minGoles = 10000;
 
     for (const Data& partido : TeamMatches) {
         ConditionalCounter++;
@@ -561,8 +566,6 @@ void FechaMaxMinGoles(HashMapList<int, Data>& DataBase, const string& equipo, co
     cout << "Fecha con menos goles de " << equipo << " en " << competicion << ": " << fechaMinGoles << " (" << minGoles << " goles)" << endl;
     cout << "Cantidad de IFs en FechaMaxMinGoles: " << ConditionalCounter << endl;
 }
-
-*/
 
 
 
@@ -608,9 +611,38 @@ struct GolesEquipo
     string equipo;
     int totalGoles = 0;
 };
-void EquipoConMasYMenosGoles(HashMapList<int, Data>& DataBase, const string& equipo, const string& competicion){
+void EquipoConMasYMenosGoles(HashMapList<int, Data>& DataBase) {
+    int ConditionalCounter = 0;
 
+    GolesEquipo equipoMax, equipoMin;
+    equipoMin.totalGoles = 10000; // Inicializar con un valor alto
+    equipoMax.totalGoles = 0;      // Inicializar con cero
+
+    for (unsigned int key = 0; key < 10000; ++key) { // Cambia 10000 por el rango esperado
+        ConditionalCounter++;
+        vector<Data> TeamMatches = DataBase.getDatosPorClave(key); // Obtener partidos del equipo
+
+        int totalGoles = 0;
+
+        for (const Data& partido : TeamMatches) {
+            totalGoles += stoi(partido.golesLocal) + stoi(partido.golesVisitante); // Sumar goles
+        }
+        // Actualizar el equipo con más y menos goles
+        if (totalGoles > equipoMax.totalGoles) {
+            equipoMax.equipo = "Equipo" + to_string(key); // Asignar nombre del equipo
+            equipoMax.totalGoles = totalGoles; // Actualizar total de goles
+        }
+        if (totalGoles < equipoMin.totalGoles && totalGoles > 0) { // Asegurarse que totalGoles no sea negativo
+            equipoMin.equipo = "Equipo" + to_string(key); // Asignar nombre del equipo
+            equipoMin.totalGoles = totalGoles; // Actualizar total de goles
+        }
+    }
+
+    cout << "Equipo con más goles: " << equipoMax.equipo << " - Total de goles: " << equipoMax.totalGoles << endl;
+    cout << "Equipo con menos goles: " << equipoMin.equipo << " - Total de goles: " << equipoMin.totalGoles << endl;
+    cout << "Cantidad de IFs en EquipoConMasYMenosGoles: " << ConditionalCounter << endl; // Mostrar el contador
 }
+
 
 /*6) agregar,eliminar,modificar*/
 void AgregarPartido(vector<Data> &ReferenceList, HashMapList <int, Data> &DataBase)
@@ -1106,19 +1138,22 @@ void ComparacionRendimientoEquiposParticular(HashMapList<int, Data>& DataBase, c
     int victorias2 = 0;
 
     for (const Data &partido1 : TeamMatches1) {
-        ConditionalCounter++;
         for (const Data &partido2 : TeamMatches2) {
             ConditionalCounter++;
-            if (partido1.fecha == partido2.fecha) {
+            if (partido1.fecha == partido2.fecha&& partido1.competicion == partido2.competicion) {
                 partidosContra++;
                 // Se determina los goles dependiendo de si el equipo es local o visitante
                 int golesEquipo1 = (partido1.local == equipo1) ? stoi(partido1.golesLocal) : stoi(partido1.golesVisitante);
                 int golesEquipo2 = (partido2.local == equipo2) ? stoi(partido2.golesLocal) : stoi(partido2.golesVisitante);
 
                 // Comparación de goles
-                empates += (golesEquipo1 == golesEquipo2);
-                victorias1 += (golesEquipo1 > golesEquipo2);
-                victorias2 += (golesEquipo2 > golesEquipo1);
+                if (golesEquipo1 == golesEquipo2) {
+                    empates++;
+                } else if (golesEquipo1 > golesEquipo2) {
+                    victorias1++;
+                } else {
+                    victorias2++;
+                }
             }
         }
     }
@@ -1135,4 +1170,68 @@ void ComparacionRendimientoEquiposParticular(HashMapList<int, Data>& DataBase, c
 partido en promedio, especificar si quiere por arriba o por debajo de ese umbral y el
 programa deberá filtrar a todos los equipos de todas las competiciones que hayan
 convertido dentro de ese umbral, incluyéndose. Discriminar por competición*/
+void FiltrarEquiposPorUmbral(HashMapList<int, Data>& DataBase) {
+    int ConditionalCounter = 0;
+    double umbral;
+    string filtro;
+    
+    cout << "Ingrese el umbral de goles promedio por partido: ";
+    cin >> umbral;
+    cin.ignore();
+    cout << "Ingrese el filtro (arriba o debajo): ";
+    getline(cin, filtro);
 
+    // Contador de goles y partidos por equipo y competición
+    vector<string> equipos;
+    vector<string> competiciones;
+    vector<int> totalGoles;
+    vector<int> totalPartidos;
+
+    // Recorremos los partidos en la base de datos usando un bucle tradicional
+    for (int i = 0; i < 9001; ++i) { 
+        vector<Data> listaPartidos = DataBase.getDatosPorClave(i);
+        for (const Data& partido : listaPartidos) {
+            ConditionalCounter++;
+
+            // Para cada partido, se procesan el local y el visitante
+            string competicion = partido.competicion;
+            int golesLocal = stoi(partido.golesLocal);
+            int golesVisitante = stoi(partido.golesVisitante);
+            
+            // Actualizamos ambos equipos en una sola llamada a la función
+            actualizarGoles(equipos, competiciones, totalGoles, totalPartidos, partido.local, competicion, golesLocal);
+            actualizarGoles(equipos, competiciones, totalGoles, totalPartidos, partido.visitante, competicion, golesVisitante);
+        }
+    }
+
+    // Filtrado basado en el umbral y presentación de resultados
+    cout << "Equipos que cumplen con el umbral de goles promedio (" << filtro << " " << umbral << "):" << endl;
+    for (size_t i = 0; i < equipos.size(); ++i) {
+        double promedioGoles = static_cast<double>(totalGoles[i]) / totalPartidos[i];
+        ConditionalCounter++;
+        // Uso de un solo if para evaluar el filtro
+        if ((filtro == "arriba" && promedioGoles >= umbral) || (filtro == "debajo" && promedioGoles <= umbral)) {
+            cout << "Equipo: " << equipos[i] << ", Competicion: " << competiciones[i] 
+                 << ", Promedio de Goles: " << promedioGoles << endl;
+        }
+    }
+
+    cout << endl << "Cantidad de condicionales: " << ConditionalCounter << endl;
+}
+
+// Función auxiliar para actualizar goles y partidos
+void actualizarGoles(vector<string>& equipos, vector<string>& competiciones, vector<int>& totalGoles, vector<int>& totalPartidos, const string& equipo, const string& competicion, int goles) {
+    // Uso de un solo bucle para encontrar y actualizar el equipo
+    for (size_t i = 0; i < equipos.size(); ++i) {
+        if (equipos[i] == equipo && competiciones[i] == competicion) {
+            totalGoles[i] += goles;
+            totalPartidos[i]++;
+            return;
+        }
+    }
+    // Si el equipo no existe, lo añadimos
+    equipos.push_back(equipo);
+    competiciones.push_back(competicion);
+    totalGoles.push_back(goles);
+    totalPartidos.push_back(1);
+}
