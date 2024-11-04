@@ -57,7 +57,7 @@ vector<string> ObtenerEquiposUnicos(const vector<Data>& ReferenceList) {
 vector<Data> ArmadoDelVector(HashMapList<int, Data> &DataBase, string equipoASaber, string Competicion, vector<string> Equipos)
 {
     int ConditionalCounter = 0;
-
+// Vector de retorno y vector auxiliar para almacenar los partidos
     vector<Data> VectorDeRetorno, VectorAuxiliar;
     
     // Llenamos VectorDeRetorno con los partidos correspondientes
@@ -226,65 +226,88 @@ int GenerarClave(const string& competicion, const string& equipo1, const string&
 
 
 //calculos del punto 5
+// Función para ordenar los datos y mostrar el Top 5 de goleadas
 void Top5GoleadasQuickSort(vector<Data>& datos, int low, int high) {
+    // Si el índice inferior es menor que el índice superior, sigue dividiendo
     if (low < high) {
+        // Particiona el vector según un pivote y obtiene el índice del pivote
         int pivotIndex = partitionCustom(datos, low, high);
+        
+        // Llama recursivamente a la función para las sublistas a la izquierda y derecha del pivote
         Top5GoleadasQuickSort(datos, low, pivotIndex - 1);
         Top5GoleadasQuickSort(datos, pivotIndex + 1, high);
     }
     
-    for (int i = 0; i < 5; i++)
-    {
-        cout << datos[i].jornada << " " << datos[i].fecha << " " << datos[i].local << " " << datos[i].golesLocal << " " << datos[i].golesVisitante << " " << datos[i].visitante << " " << datos[i].competicion << endl; 
+    // Imprime los primeros 5 elementos del vector, que serán las 5 mayores goleadas
+    for (int i = 0; i < 5; i++) {
+        cout << datos[i].jornada << " " << datos[i].fecha << " " << datos[i].local << " " 
+             << datos[i].golesLocal << " " << datos[i].golesVisitante << " " << datos[i].visitante 
+             << " " << datos[i].competicion << endl;
     }
 }
 
+// Función para particionar el vector según los goles, utilizada en el ordenamiento QuickSort
 int partitionCustom(vector<Data>& datos, int low, int high) {
+    // Selecciona el último elemento como pivote y obtiene sus goles locales y visitantes
     int pivotGolesLocal = stoi(datos[high].golesLocal);
     int pivotGolesVisitante = stoi(datos[high].golesVisitante);
     int i = low - 1;
 
+    // Itera sobre el rango de low a high-1
     for (int j = low; j < high; ++j) {
+        // Obtiene los goles locales y visitantes del elemento actual
         int golesLocal = stoi(datos[j].golesLocal);
         int golesVisitante = stoi(datos[j].golesVisitante);
 
+        // Si los goles del equipo local son mayores que los del pivote, o si son iguales
+        // y los goles del visitante son mayores, intercambia los elementos
         if (golesLocal > pivotGolesLocal || (golesLocal == pivotGolesLocal && golesVisitante > pivotGolesVisitante)) {
             ++i;
             swap(datos[i], datos[j]);
         }
     }
+    // Coloca el pivote en la posición correcta
     swap(datos[i + 1], datos[high]);
-    return i + 1;
+    return i + 1; // Devuelve el índice del pivote
 }
+
 
 // bubblesort por si ya esta ordenado 
 
+// Función para ordenar los datos y mostrar el Top 5 de goleadas utilizando Bubble Sort
 void Top5GoleadasBubbleSort(vector<Data>& datos) {
-    bool swapped;
-    int n = datos.size();
+    bool swapped; // Indica si hubo intercambio en la iteración actual
+    int n = datos.size(); // Tamaño del vector de datos
 
+    // Bucle externo para cada pasada en el Bubble Sort
     for (int i = 0; i < n - 1; ++i) {
-        swapped = false;
+        swapped = false; // Reinicia la variable swapped para cada pasada
+
+        // Bucle interno para comparar elementos adyacentes
         for (int j = 0; j < n - i - 1; ++j) {
+            // Convierte a enteros los goles de local y visitante para las comparaciones
             int golesLocal1 = stoi(datos[j].golesLocal);
             int golesVisitante1 = stoi(datos[j].golesVisitante);
             int golesLocal2 = stoi(datos[j + 1].golesLocal);
             int golesVisitante2 = stoi(datos[j + 1].golesVisitante);
 
-            // Primero compara goles de local; si son iguales, usa goles de visitante
+            // Compara goles locales de los dos partidos; si son iguales, compara goles visitantes
             if (golesLocal1 < golesLocal2 || (golesLocal1 == golesLocal2 && golesVisitante1 < golesVisitante2)) {
-                swap(datos[j], datos[j + 1]);
-                swapped = true;
+                swap(datos[j], datos[j + 1]); // Intercambia los elementos si están en el orden incorrecto
+                swapped = true; // Marca que hubo intercambio en esta pasada
             }
         }
-        if (!swapped) break; // Optimización si el vector ya está ordenado
+        
+        // Si no hubo intercambios, el vector ya está ordenado, por lo que se rompe el bucle
+        if (!swapped) break;
     }
 
-    for (int i = 0; i < 5; i++)
-    {
-        cout << datos[i].jornada << " " << datos[i].fecha << " " << datos[i].local << " " << datos[i].golesLocal << " " << datos[i].golesVisitante << " " << datos[i].visitante << " " << datos[i].competicion << endl; 
+    // Imprime los primeros 5 elementos del vector, que serán las 5 mayores goleadas
+    for (int i = 0; i < 5; i++) {
+        cout << datos[i].jornada << " " << datos[i].fecha << " " << datos[i].local << " " 
+             << datos[i].golesLocal << " " << datos[i].golesVisitante << " " << datos[i].visitante 
+             << " " << datos[i].competicion << endl;
     }
-    
 }
 
 
@@ -300,56 +323,68 @@ void Top5GoleadasBubbleSort(vector<Data>& datos) {
 
 
 
-void GolesTotales(vector<Data> PartidosJugados, string equipoASaber, string competicion)
-{
-    system("cls");
-    int golesTotales = 0;
-    int ConditionalCounter = 0;
-    for (int i = 0; i < PartidosJugados.size(); i++)
-    {
-        ConditionalCounter++;
-        if (PartidosJugados[i].local == equipoASaber)
-        {
-            golesTotales += stoi(PartidosJugados[i].golesLocal);
-        }else
-        {
-            golesTotales += stoi(PartidosJugados[i].golesVisitante);   
+// Función que calcula el total de goles anotados por un equipo en una competición específica
+void GolesTotales(vector<Data> PartidosJugados, string equipoASaber, string competicion) {
+    system("cls"); // Limpia la pantalla de la consola
+
+    int golesTotales = 0; // Variable para acumular la cantidad total de goles
+    int ConditionalCounter = 0; // Contador para registrar cuántas veces se ejecutan las condiciones
+
+    // Recorre todos los partidos en el vector de PartidosJugados
+    for (int i = 0; i < PartidosJugados.size(); i++) {
+        ConditionalCounter++; // Incrementa el contador por la verificación de condición que sigue
+
+        // Si el equipo especificado es el equipo local, suma los goles como local
+        if (PartidosJugados[i].local == equipoASaber) {
+            golesTotales += stoi(PartidosJugados[i].golesLocal); // Convierte y suma los goles del equipo local
+        } else {
+            // Si el equipo especificado no es el equipo local, suma los goles como visitante
+            golesTotales += stoi(PartidosJugados[i].golesVisitante); // Convierte y suma los goles del equipo visitante
         }
-        ConditionalCounter++;
+
+        ConditionalCounter++; // Incrementa nuevamente el contador de condicionales después del `else`
     }
 
+    // Muestra el total de goles del equipo en la competición solicitada
     cout << "Goles totales de " << equipoASaber << " en " << competicion << ": " << golesTotales << endl;
+    // Muestra el total de veces que se evaluaron condiciones
     cout << "Cantidad de condicionales: " << ConditionalCounter << endl;
-    system("pause");
+
+    system("pause"); // Pausa la pantalla para que el usuario pueda ver los resultados antes de cerrar
 }
 
-/*promedio goles*/
 
-void PromedioGoles(vector<Data> PartidosJugados, string equipoASaber, string competicion)
-{
-    system("cls");
+//Funcion que calcula el promedio de goles a favor y en contra de un equipo en una competición
+
+void PromedioGoles(vector<Data> PartidosJugados, string equipoASaber, string competicion) {
+    system("cls"); 
+
     int golesAfavor = 0;
-    int golesEnContra =0;
-    int ConditionalCounter = 0;
-    for (int i = 0; i < PartidosJugados.size(); i++)
-    {
-        ConditionalCounter++;
-        if (PartidosJugados[i].local == equipoASaber)
-        {
-            golesAfavor += stoi(PartidosJugados[i].golesLocal);
-            golesEnContra += stoi(PartidosJugados[i].golesVisitante);
-        }else
-        {
-            golesAfavor+= stoi(PartidosJugados[i].golesVisitante);
-            golesEnContra += stoi(PartidosJugados[i].golesLocal);
+    int golesEnContra = 0; 
+    int ConditionalCounter = 0; 
+
+    // Recorre todos los partidos en los que participó el equipo
+    for (int i = 0; i < PartidosJugados.size(); i++) {
+        ConditionalCounter++; // Incrementa por la evaluación condicional
+
+        // Si el equipo jugó como local, suma goles a favor y en contra como corresponde
+        if (PartidosJugados[i].local == equipoASaber) {
+            golesAfavor += stoi(PartidosJugados[i].golesLocal); // Goles del equipo como local
+            golesEnContra += stoi(PartidosJugados[i].golesVisitante); // Goles del oponente como visitante
+        } else {
+            // Si el equipo jugó como visitante, invierte los roles de goles a favor y en contra
+            golesAfavor += stoi(PartidosJugados[i].golesVisitante); // Goles del equipo como visitante
+            golesEnContra += stoi(PartidosJugados[i].golesLocal); // Goles del oponente como local
         }
-        ConditionalCounter++;
+        ConditionalCounter++; // Incrementa después del `else`
     }
 
-    cout << "Promedio de goles de " << equipoASaber << " en " << competicion << " a favor: " << golesAfavor/PartidosJugados.size() << endl;
-    cout << "Promedio de goles de " << equipoASaber << " en " << competicion << " en contra: " << golesEnContra/PartidosJugados.size() << endl;
+    // Cálculo del promedio de goles a favor y en contra
+    cout << "Promedio de goles de " << equipoASaber << " en " << competicion << " a favor: " << golesAfavor / PartidosJugados.size() << endl;
+    cout << "Promedio de goles de " << equipoASaber << " en " << competicion << " en contra: " << golesEnContra / PartidosJugados.size() << endl;
     cout << "Cantidad de condicionales: " << ConditionalCounter << endl;
-    system("pause");
+
+    system("pause"); 
 }
 
 
@@ -361,33 +396,36 @@ void PromedioGoles(vector<Data> PartidosJugados, string equipoASaber, string com
 
 
 
-void CantidadDeDerrotas(vector<Data> PartidosJugados, string equipoASaber, string competicion)
-{
-    system("cls");
+// Función que muestra la cantidad de derrotas y triunfos de un equipo en una competición
+void CantidadDeDerrotas(vector<Data> PartidosJugados, string equipoASaber, string competicion) {
     int ConditionalCounter = 0;
     int cantidadDeDerrotas = 0;
     int CantidadDeTriunfos = 0;
 
     int golesAfavor, golesEnContra;
-    for (int i = 0; i < PartidosJugados.size(); i++)
-    {
+
+    // Recorre cada partido en el vector de partidos jugados
+    for (int i = 0; i < PartidosJugados.size(); i++) {
         golesAfavor = 0;
         golesEnContra = 0;
         ConditionalCounter++;
-        if (PartidosJugados[i].local == equipoASaber)
-        {
+
+        // Determina si el equipo jugó como local o visitante y ajusta los goles a favor y en contra
+        if (PartidosJugados[i].local == equipoASaber) {
             golesAfavor += stoi(PartidosJugados[i].golesLocal);
             golesEnContra += stoi(PartidosJugados[i].golesVisitante);
-        }else
-        {
+        } else {
             golesAfavor += stoi(PartidosJugados[i].golesVisitante);
             golesEnContra += stoi(PartidosJugados[i].golesLocal);         
         }
         ConditionalCounter++;
-        if (golesAfavor > golesEnContra)
-        {
+
+        // Verifica si el equipo ganó o perdió el partido
+        if (golesAfavor > golesEnContra) {
             CantidadDeTriunfos++;
-        }else{cantidadDeDerrotas++;}
+        } else {
+            cantidadDeDerrotas++;
+        }
         ConditionalCounter++;
     }
 
@@ -395,43 +433,42 @@ void CantidadDeDerrotas(vector<Data> PartidosJugados, string equipoASaber, strin
     cout << "Cantidad de triunfos " << CantidadDeTriunfos << endl;
     cout << "Cantidad de derrotas " << cantidadDeDerrotas << endl;
     cout << endl << "Cantidad de condicionales " << ConditionalCounter << endl;
-    system("pause"); 
 }
 
-void FechaMaxMinGoles (vector<Data> PartidosJugados, string equipoASaber, string competicion)
-{
+// Función que muestra la fecha con más goles y la fecha con menos goles de un equipo en una competición
+void FechaMaxMinGoles (vector<Data> PartidosJugados, string equipoASaber, string competicion) {
     int ConditionalCounter = 0;
     int golesTotales = 0;
     int golesMaximos = 0;
     int golesMinimos = 1000;
     string fechaMaxima, fechaMinima;
-    for (int i = 0; i < PartidosJugados.size(); i++)
-    {
-        if (PartidosJugados[i].competicion == competicion) 
-        {
-            ConditionalCounter++;
-            golesTotales = 0; 
 
+    // Recorre cada partido en el vector de partidos jugados
+    for (int i = 0; i < PartidosJugados.size(); i++) {
+        
+        // Verifica si el partido corresponde a la competición especificada
+        if (PartidosJugados[i].competicion == competicion) {
+            ConditionalCounter++;
+            golesTotales = 0; // Reinicia el conteo de goles para cada partido
+            
+            // Calcula los goles del equipo dependiendo de si jugó como local o visitante
             if (PartidosJugados[i].local == equipoASaber) {
-                // Sumar goles a favor y en contra cuando el equipo es local
-                golesTotales += stoi(PartidosJugados[i].golesLocal);
+                golesTotales += stoi(PartidosJugados[i].golesLocal); // Goles como equipo local
             } else if (PartidosJugados[i].visitante == equipoASaber) {
-                // Sumar goles a favor y en contra cuando el equipo es visitante
-                golesTotales += stoi(PartidosJugados[i].golesVisitante);
+                golesTotales += stoi(PartidosJugados[i].golesVisitante); // Goles como equipo visitante
             }
 
-
-        if (golesTotales > golesMaximos)
-        {
-            golesMaximos = golesTotales;
-            fechaMaxima = PartidosJugados[i].fecha;
+            // Actualiza los valores máximos y mínimos de goles si se superan los registros actuales
+            if (golesTotales > golesMaximos) {
+                golesMaximos = golesTotales;
+                fechaMaxima = PartidosJugados[i].fecha;
+            }
+            if (golesTotales < golesMinimos) {
+                golesMinimos = golesTotales;
+                fechaMinima = PartidosJugados[i].fecha;
+            }
+            ConditionalCounter++;
         }
-        if (golesTotales < golesMinimos)
-        {
-            golesMinimos = golesTotales;
-            fechaMinima = PartidosJugados[i].fecha;
-        }
-        ConditionalCounter++;
     }
 
     cout << "Fecha con mas goles de " << equipoASaber << " en " << competicion << ": " << fechaMaxima << endl;
@@ -439,11 +476,11 @@ void FechaMaxMinGoles (vector<Data> PartidosJugados, string equipoASaber, string
     cout << "Cantidad de condicionales: " << ConditionalCounter << endl;
     system("pause");
 }
-}
 
 
 
 
+// Función que muestra la competición con más goles y menos goles
 void CompeticionConMasYMenosGoles(const vector<Data>& Partidos)
 {
     map<string, int> golesPorCompeticion;
@@ -485,7 +522,7 @@ void CompeticionConMasYMenosGoles(const vector<Data>& Partidos)
     system("pause");
 }
 
-
+// Función que muestra el equipo con más goles y el equipo con menos goles de todas las competiciones
 void EquipoConMasYMenosGoles(const vector<Data>& Partidos)
 {
     map<string, int> golesPorEquipo;
@@ -562,9 +599,11 @@ void EquipoConMasYMenosGoles(const vector<Data>& Partidos)
 void AgregarPartido(HashMapList<int, Data> &DataBase, vector<Data> &ReeferenceList) {
     system("cls");
     string jornada, fecha, Local, Visitante, golesLocal, golesVisitante, competicion;
-    Data Parameter;
-    cin.ignore();
+    Data Parameter; // Variable para almacenar los datos del partido
 
+    cin.ignore(); // Ignora el carácter de nueva línea residual del buffer
+
+    // Solicita al usuario los datos del partido y los almacena en las variables
     cout << "Ingrese la jornada: ";
     getline(cin, jornada);
 
@@ -586,64 +625,75 @@ void AgregarPartido(HashMapList<int, Data> &DataBase, vector<Data> &ReeferenceLi
     cout << "Ingrese la competicion: ";
     getline(cin, competicion);
 
+    // Carga los datos ingresados en el objeto Parameter de tipo Data
     Parameter.Carga(jornada, fecha, Local, golesLocal, golesVisitante, Visitante, competicion);
+
+    // Genera una clave única para el partido basado en la competición y equipos involucrados
     int clave = GenerarClave(competicion, Local, Visitante);
+
+    // Agrega el partido a la base de datos usando la clave generada
     DataBase.put(clave, Parameter);
+
+    // Añade el partido a la lista de referencia
     ReeferenceList.push_back(Parameter);
+
     cout << "Partido Cargado " << endl;
     system("pause");
 }
-
 
 void EliminarPartido(HashMapList<int, Data> &DataBase) 
 {
     system("cls");
     int ConditionalCounter = 0;
     string equipo1, equipo2, competicion, fecha;
-
     vector<Data> vectorAuxuiliar;
-    
 
-    cin.ignore();
+    cin.ignore(); // Limpia el buffer de entrada
 
+    // Solicita los equipos y la competición para identificar el partido
     cout << "Ingrese el enfrentamiento concurrido en ese partido " << endl;
     cout << "Equipo 1: ";
     getline(cin, equipo1);
     cout << "Equipo 2: ";
     getline(cin, equipo2);
-    cout << "Competicion: " << endl;
+    cout << "Competicion: ";
     getline(cin, competicion);
 
+    // Genera la clave única para el partido y obtiene el vector correspondiente
     int clave = GenerarClave(competicion, equipo1, equipo2);
     vectorAuxuiliar = DataBase.getDatosPorClave(clave);
+    
+    // Muestra los partidos encontrados en el vector
     LeerDatosVector(vectorAuxuiliar);
-    cout << endl;
-    cout << "Ingrese la fecha del partido a modificar " << endl;
+
+    // Solicita la fecha del partido específico a eliminar
+    cout << endl << "Ingrese la fecha del partido a modificar " << endl;
     getline(cin, fecha);
 
+    // Busca el partido por fecha y lo elimina si coincide
     for (int i = 0; i < vectorAuxuiliar.size(); i++)
     {
         ConditionalCounter++;
         if (vectorAuxuiliar[i].fecha == fecha)
         {
             vectorAuxuiliar.erase(vectorAuxuiliar.begin() + i);
-            return;
+            break;
         }
-        ConditionalCounter++;
     }
 
+    // Borra el conjunto de partidos de la clave original en la base de datos
     DataBase.remove(clave);
+
+    // Reagrega los partidos restantes al `DataBase` bajo la misma clave
     for (int i = 0; i < vectorAuxuiliar.size(); i++)
     {
         ConditionalCounter++;
         DataBase.put(clave, vectorAuxuiliar[i]);
     }
-    
+
     cout << "Partido eliminado" << endl;
     cout << "Cantidad de condicionales " << ConditionalCounter << endl;
 }
-
-
 void ModificarPartido(HashMapList<int, Data> &DataBase) {
     system("cls");
     int ConditionalCounter = 0;
@@ -652,6 +702,7 @@ void ModificarPartido(HashMapList<int, Data> &DataBase) {
     vector<Data> vectorAuxiliar;
     cin.ignore();
 
+    // Solicita los equipos y la competición para identificar el partido
     cout << "Ingrese el enfrentamiento concurrido en ese partido" << endl;
     cout << "Equipo 1: ";
     getline(cin, equipo1);
@@ -660,16 +711,19 @@ void ModificarPartido(HashMapList<int, Data> &DataBase) {
     cout << "Competicion: ";
     getline(cin, competicion);
 
+    // Genera la clave para encontrar los datos y muestra los partidos encontrados
     int clave = GenerarClave(competicion, equipo1, equipo2);
     vectorAuxiliar = DataBase.getDatosPorClave(clave);
     LeerDatosVector(vectorAuxiliar);
 
+    // Solicita la fecha del partido a modificar
     cout << "Ingrese la fecha del partido a modificar: ";
     getline(cin, fecha);
 
     Data PartidoAModificar;
     bool encontrado = false;
 
+    // Busca el partido por fecha y lo extrae si coincide
     for (int i = 0; i < vectorAuxiliar.size(); i++) {
         ConditionalCounter++;
         if (vectorAuxiliar[i].fecha == fecha) {
@@ -681,13 +735,15 @@ void ModificarPartido(HashMapList<int, Data> &DataBase) {
         ConditionalCounter++;
     }
     ConditionalCounter++;
+
+    // Verifica si el partido fue encontrado; si no, muestra un mensaje y sale
     if (!encontrado) {
-        
         cout << "Partido no encontrado." << endl;
         system("pause");
         return;
     }
 
+    // Permite modificar los atributos del partido encontrado
     int op;
     do {
         ConditionalCounter++;
@@ -695,48 +751,51 @@ void ModificarPartido(HashMapList<int, Data> &DataBase) {
         cin >> op;
         cin.ignore();  
         cout << endl;
+        
         switch (op) {
-        case 1:
-            cout << "Ingrese la nueva jornada: ";
-            getline(cin, PartidoAModificar.jornada);
-            break;
-        case 2:
-            cout << "Ingrese la nueva fecha: ";
-            getline(cin, PartidoAModificar.fecha);
-            break;
-        case 3:
-            cout << "Ingrese el nuevo equipo local: ";
-            getline(cin, PartidoAModificar.local);
-            break;
-        case 4:
-            cout << "Ingrese los nuevos goles locales: ";
-            getline(cin, PartidoAModificar.golesLocal);
-            break;
-        case 5: 
-            cout << "Ingrese los nuevos goles visitante: ";
-            getline(cin, PartidoAModificar.golesVisitante);
-            break;
-        case 6:
-            cout << "Ingrese el nuevo equipo visitante: ";
-            getline(cin, PartidoAModificar.visitante);
-            break;
-        case 7:
-            cout << "Ingrese la nueva competicion: ";
-            getline(cin, PartidoAModificar.competicion);
-            break;
-        default:
-            op = 0;
-            break;
+            case 1:
+                cout << "Ingrese la nueva jornada: ";
+                getline(cin, PartidoAModificar.jornada);
+                break;
+            case 2:
+                cout << "Ingrese la nueva fecha: ";
+                getline(cin, PartidoAModificar.fecha);
+                break;
+            case 3:
+                cout << "Ingrese el nuevo equipo local: ";
+                getline(cin, PartidoAModificar.local);
+                break;
+            case 4:
+                cout << "Ingrese los nuevos goles locales: ";
+                getline(cin, PartidoAModificar.golesLocal);
+                break;
+            case 5: 
+                cout << "Ingrese los nuevos goles visitante: ";
+                getline(cin, PartidoAModificar.golesVisitante);
+                break;
+            case 6:
+                cout << "Ingrese el nuevo equipo visitante: ";
+                getline(cin, PartidoAModificar.visitante);
+                break;
+            case 7:
+                cout << "Ingrese la nueva competicion: ";
+                getline(cin, PartidoAModificar.competicion);
+                break;
+            default:
+                op = 0;
+                break;
         }
         ConditionalCounter++;
     } while (op != 0);
 
+    // Elimina los datos previos y reinserta los partidos actualizados bajo la misma clave
     DataBase.remove(clave);
     for (const auto& partido : vectorAuxiliar) {
         ConditionalCounter++;
         DataBase.put(clave, partido);
     }
     
+    // Genera una nueva clave si hubo cambios en el equipo o competición
     clave = GenerarClave(PartidoAModificar.competicion, PartidoAModificar.local, PartidoAModificar.visitante);
     DataBase.put(clave, PartidoAModificar);
 
@@ -777,56 +836,65 @@ void ModificarPartido(HashMapList<int, Data> &DataBase) {
 
 // Función para comparar dos fechas en formato "dd/mm/yyyy"
 bool CompararFechas(const string &fecha1, const string &fecha2, int &ContCond) {
-    int dia1 = stoi(fecha1.substr(0, 2));
-    int mes1 = stoi(fecha1.substr(3, 2));
-    int anio1 = stoi(fecha1.substr(6, 4));
+    // Extraer el día, mes y año de la primera fecha
+    int dia1 = stoi(fecha1.substr(0, 2)); 
+    int mes1 = stoi(fecha1.substr(3, 2)); 
+    int anio1 = stoi(fecha1.substr(6, 4)); 
 
+    // Extraer el día, mes y año de la segunda fecha
     int dia2 = stoi(fecha2.substr(0, 2));
-    int mes2 = stoi(fecha2.substr(3, 2));
-    int anio2 = stoi(fecha2.substr(6, 4));
+    int mes2 = stoi(fecha2.substr(3, 2)); 
+    int anio2 = stoi(fecha2.substr(6, 4)); 
 
+    // Comparar los años
     if (anio1 != anio2) {
-        return anio1 < anio2;
+        ContCond++; 
+        return anio1 < anio2; // Retornar true si fecha1 es anterior a fecha2
     } else if (mes1 != mes2) {
-        return mes1 < mes2;
+        ContCond++; 
+        return mes1 < mes2; // Retornar true si fecha1 es anterior a fecha2 según el mes
     } else {
-        return dia1 < dia2;
+        ContCond++; 
+        return dia1 < dia2; // Retornar true si fecha1 es anterior a fecha2 según el día
     }
 }
 
 // Función de partición para QuickSort
 int Particion(vector<Data> &VectorAOrdenar, int low, int high, int &ContCond) {
     string pivot = VectorAOrdenar[high].fecha; // Elegir la última fecha como pivote
-    int i = low - 1;
+    int i = low - 1; // Inicializar índice i para rastrear el lugar de intercambio
 
+    // Iterar sobre el rango de elementos a particionar
     for (int j = low; j < high; j++) {
-        ContCond++;
+        ContCond++; 
+        // Comparar la fecha del elemento actual con el pivote
         if (CompararFechas(VectorAOrdenar[j].fecha, pivot, ContCond)) {
-            i++;
-            swap(VectorAOrdenar[i], VectorAOrdenar[j]);
+            i++; // Incrementar índice i
+            swap(VectorAOrdenar[i], VectorAOrdenar[j]); // Intercambiar elementos
         }
-        ContCond++;
+        ContCond++; // Incrementar el contador de condiciones
     }
+    // Intercambiar el pivote con el elemento en la posición i + 1
     swap(VectorAOrdenar[i + 1], VectorAOrdenar[high]);
-    return i + 1;
+    return i + 1; // Retornar la nueva posición del pivote
 }
 
 // Implementación de QuickSort
 void QuickSort(vector<Data> &VectorAOrdenar, int low, int high, int &ContCond) {
-    ContCond++;
-    if (low < high) {
-        int pi = Particion(VectorAOrdenar, low, high, ContCond);
+    ContCond++; 
+    if (low < high) { // Verificar si el rango es válido para particionar
+        int pi = Particion(VectorAOrdenar, low, high, ContCond); // Realizar la partición
 
-        // Ordenar recursivamente los elementos antes y después de la partición
-        QuickSort(VectorAOrdenar, low, pi - 1, ContCond);
-        QuickSort(VectorAOrdenar, pi + 1, high, ContCond);
+        // Llamar recursivamente a QuickSort para las subpartes antes y después de la partición
+        QuickSort(VectorAOrdenar, low, pi - 1, ContCond); // Ordenar la parte izquierda
+        QuickSort(VectorAOrdenar, pi + 1, high, ContCond); // Ordenar la parte derecha
     }
 }
 
 // Función principal que ordena el vector usando QuickSort
 void OrdenadoPorFechas(vector<Data> &VectorAOrdenar, int &ContCond) {
-    if (!VectorAOrdenar.empty()) {
-        QuickSort(VectorAOrdenar, 0, VectorAOrdenar.size() - 1, ContCond);
+    if (!VectorAOrdenar.empty()) { // Verificar si el vector no está vacío
+        QuickSort(VectorAOrdenar, 0, VectorAOrdenar.size() - 1, ContCond); // Llamar a QuickSort
     }
 }
 
