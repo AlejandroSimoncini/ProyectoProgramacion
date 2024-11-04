@@ -229,9 +229,10 @@ int GenerarClave(const string& competicion, const string& equipo1, const string&
 // Función para ordenar los datos y mostrar el Top 5 de goleadas
 void Top5GoleadasQuickSort(vector<Data>& datos, int low, int high, int &CondCont) {
     // Si el índice inferior es menor que el índice superior, sigue dividiendo
-    CondCont++;
+
     if (low < high) {
         // Particiona el vector según un pivote y obtiene el índice del pivote
+        CondCont++;
         int pivotIndex = partitionCustom(datos, low, high, CondCont);
         
         // Llama recursivamente a la función para las sublistas a la izquierda y derecha del pivote
@@ -256,8 +257,9 @@ int partitionCustom(vector<Data>& datos, int low, int high, int &CondCont) {
 
         // Si los goles del equipo local son mayores que los del pivote, o si son iguales
         // y los goles del visitante son mayores, intercambia los elementos
-        CondCont++;
+        
         if (golesLocal > pivotGolesLocal || (golesLocal == pivotGolesLocal && golesVisitante > pivotGolesVisitante)) {
+            CondCont++;
             ++i;
             swap(datos[i], datos[j]);
         }
