@@ -24,6 +24,8 @@ int main()
     CargaVector(ReferenceList);
     CargaBaseHash(DataBase, ReferenceList);
     Equipos = ObtenerEquiposUnicos(ReferenceList);
+    int ConditionalCounterTop5 = 0;
+    Top5GoleadasQuickSort(ReferenceList, 0, ReferenceList.size() - 1, ConditionalCounterTop5);
 
     //Variables del menu
     
@@ -40,7 +42,8 @@ int main()
 
     case 1:
     {
-        // Aquí puedes agregar la funcionalidad del case 1 si lo necesitas.
+        cout << "Cantidad de condicionales usados en los calculos: " << ConditionalCounterTop5;
+        MostrarTop5Goleadas(ReferenceList);
         break;
     }
 

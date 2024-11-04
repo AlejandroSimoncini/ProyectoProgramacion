@@ -14,7 +14,7 @@
 using namespace std;
 
 int GenerarClave(const string& competicion, const string& equipo1, const string& equipo2);
-int partitionCustom(vector<Data>& datos, int low, int high);
+int partitionCustom(vector<Data>& datos, int low, int high, int &CondCont);
 void FechaMaxMinGoles (vector<Data> PartidosJugados, string equipoASaber, string competicion);
 
 
@@ -227,27 +227,22 @@ int GenerarClave(const string& competicion, const string& equipo1, const string&
 
 //calculos del punto 5
 // Función para ordenar los datos y mostrar el Top 5 de goleadas
-void Top5GoleadasQuickSort(vector<Data>& datos, int low, int high) {
+void Top5GoleadasQuickSort(vector<Data>& datos, int low, int high, int &CondCont) {
     // Si el índice inferior es menor que el índice superior, sigue dividiendo
+    CondCont++;
     if (low < high) {
         // Particiona el vector según un pivote y obtiene el índice del pivote
-        int pivotIndex = partitionCustom(datos, low, high);
+        int pivotIndex = partitionCustom(datos, low, high, CondCont);
         
         // Llama recursivamente a la función para las sublistas a la izquierda y derecha del pivote
-        Top5GoleadasQuickSort(datos, low, pivotIndex - 1);
-        Top5GoleadasQuickSort(datos, pivotIndex + 1, high);
+        Top5GoleadasQuickSort(datos, low, pivotIndex - 1, CondCont);
+        Top5GoleadasQuickSort(datos, pivotIndex + 1, high, CondCont);
     }
     
-    // Imprime los primeros 5 elementos del vector, que serán las 5 mayores goleadas
-    for (int i = 0; i < 5; i++) {
-        cout << datos[i].jornada << " " << datos[i].fecha << " " << datos[i].local << " " 
-             << datos[i].golesLocal << " " << datos[i].golesVisitante << " " << datos[i].visitante 
-             << " " << datos[i].competicion << endl;
-    }
 }
 
 // Función para particionar el vector según los goles, utilizada en el ordenamiento QuickSort
-int partitionCustom(vector<Data>& datos, int low, int high) {
+int partitionCustom(vector<Data>& datos, int low, int high, int &CondCont) {
     // Selecciona el último elemento como pivote y obtiene sus goles locales y visitantes
     int pivotGolesLocal = stoi(datos[high].golesLocal);
     int pivotGolesVisitante = stoi(datos[high].golesVisitante);
@@ -261,6 +256,7 @@ int partitionCustom(vector<Data>& datos, int low, int high) {
 
         // Si los goles del equipo local son mayores que los del pivote, o si son iguales
         // y los goles del visitante son mayores, intercambia los elementos
+        CondCont++;
         if (golesLocal > pivotGolesLocal || (golesLocal == pivotGolesLocal && golesVisitante > pivotGolesVisitante)) {
             ++i;
             swap(datos[i], datos[j]);
@@ -271,6 +267,17 @@ int partitionCustom(vector<Data>& datos, int low, int high) {
     return i + 1; // Devuelve el índice del pivote
 }
 
+// Muestra los Top 5 partidos con más goles
+void MostrarTop5Goleadas(const vector<Data>& datos) {
+    int topCount = min(5, (int)datos.size()); // Muestra solo los 5 primeros o todos si hay menos de 5
+    for (int i = 0; i < topCount; ++i) {
+        cout << "Partido " << i + 1 << ": "
+             << datos[i].local << " " << datos[i].golesLocal << " - "
+             << datos[i].visitante << " " << datos[i].golesVisitante
+             << " en " << datos[i].competicion << endl;
+    }
+    system("pause");
+}
 
 // bubblesort por si ya esta ordenado 
 
