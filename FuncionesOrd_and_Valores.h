@@ -97,3 +97,89 @@ void EliminarContrario(HashMapList<int, Data> &DataBase, string juegaDe, string 
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+void ComparacionRendimientoEquiposParticular(HashMapList<int, Data>& DataBase)
+{
+    system("cls");
+    int ConditionalCounter = 0;
+    string equipo1, equipo2;
+    string competicion1, competicion2;
+    cout << endl << "Ingrese el nombre del primer equipo: ";
+    getline(cin, equipo1);
+    cout << endl <<"Ingrese la competicion en la que jugo: ";
+    getline(cin, competicion1);
+    cout << endl <<"Ingrese el nombre del segundo equipo: ";
+    getline(cin, equipo2);
+
+    int key1 = GenerateKey(equipo1, competicion1);
+    int key2 = GenerateKey(equipo2, competicion2);
+    vector<Data> ListaEnfrentamiento = DataBase.getDatosPorClave(key1);
+ 
+
+    int golesAfavorEquipo1;
+    int golesAfavorEquipo2;
+
+    for (int i = 0; i < ListaEnfrentamiento.size(); i++)
+    {
+        ConditionalCounter++;
+        if (ListaEnfrentamiento[i].visitante == equipo2 || ListaEnfrentamiento[i].local == equipo2)
+        {
+            if (ListaEnfrentamiento[i].local == equipo1)
+            {
+                for (char c : ListaEnfrentamiento[i].golesLocal)
+                {
+                    ConditionalCounter++;
+                    if (c != '(' || c != ')')
+                    {
+                        golesAfavorEquipo1 += c - '0';
+                    }
+                }
+                for (char c : ListaEnfrentamiento[i].golesVisitante)
+                {
+                    ConditionalCounter++;
+                    if (c != '(' || c != ')')
+                    {
+                        golesAfavorEquipo2 += c - '0';
+                    }
+                }
+            }else{
+                for (char c : ListaEnfrentamiento[i].golesVisitante)
+                {
+                    ConditionalCounter++;
+                    if (c != '(' || c != ')')
+                    {
+                        golesAfavorEquipo1 += c - '0';
+                    }
+                }
+                for (char c : ListaEnfrentamiento[i].golesLocal)
+                {
+                    ConditionalCounter++;
+                    if (c != '(' || c != ')')
+                    {
+                        golesAfavorEquipo2 += c - '0';
+                    }
+                    
+                }
+            }
+            
+        }
+
+
+
+        ConditionalCounter++;
+    }
+    
+    cout << endl << "Goles a favor de " << equipo1 << ": " << golesAfavorEquipo1 << endl;
+    cout << "Goles a favor de " << equipo2 << ": " << golesAfavorEquipo2 << endl;
+    cout << endl << "Condicionales usados: " << ConditionalCounter << endl; 
+}

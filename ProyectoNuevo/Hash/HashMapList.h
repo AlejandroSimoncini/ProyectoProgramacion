@@ -154,7 +154,7 @@ void HashMapList<K, T>::print() {
             std::cout << "Índice " << i << ": ";
             Nodo<HashEntry<K, T>> *aux = tabla[i]->getInicio();
             while (aux != NULL) {
-                std::cout << "(" << aux->getDato().getClave() << ", " << aux->getDato().getValor() << ") ";
+                std::cout << "(" << aux->getDato().getClave() << ", " << aux->getDato().getValor() << ") " << std::endl;
                 aux = aux->getSiguiente();
             }
             std::cout << std::endl;
